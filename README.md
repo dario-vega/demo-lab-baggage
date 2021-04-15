@@ -8,7 +8,7 @@ https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.co
 https://foo179.docs.apiary.io/#
 
 
-## TEST Streaming :construction_worker: :wrench: ⚠️
+## TEST Service Connector (Streaming-Function) :construction_worker: :wrench: ⚠️
 
 ![Working](ServiceConnector.PNG)
 
