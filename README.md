@@ -1,6 +1,15 @@
-# demo-lab-baggage :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
+# demo-lab-baggage 
 
-##  Documentation V0 
+## TEST API ⏰:construction_worker:  :wrench:
+
+https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
+https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
+
+## TEST Streaming :construction_worker: :wrench: ⚠️
+
+
+
+##  Documentation V0 :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
 Creating, testing and Deploying Functions
 ```
 
