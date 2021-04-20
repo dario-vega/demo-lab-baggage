@@ -1,5 +1,18 @@
 # demo-lab-baggage 
 
+The multi-tier application has been the most used architecture pattern for decades. The multi-tier pattern provides good guidelines for you to follow to ensure decoupled and scalable application components that can be separately managed and maintained.
+
+## The Serverless Logic Tier
+The logic tier of the three-tier architecture represents the brains of the application. Integrating API Gateway and functions to form your logic tier can be so revolutionary.
+The features of the two services allow you to build a serverless production application that is highly available, scalable, and secure. Your application could use thousands of servers, however by leveraging this pattern you do not have to manage even a single one. 
+
+In addition, by using these managed services together you gain the following benefits: 
+*	No operating systems to choose, secure, patch, or manage.
+*	No servers to right size, monitor, or scale out. 
+*	No risk to your cost by over-provisioning. 
+*	No risk to your performance by under-provisioning.
+
+
 ## TEST API ⏰:construction_worker:  :wrench:
 
 https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
@@ -12,7 +25,7 @@ https://foo179.docs.apiary.io/#
 
 ![Working](ServiceConnector.PNG)
 
-##  Documentation V0 :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
+## CI/CD - Manual Deployment Documentation V0 :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
 Creating, testing and Deploying Functions
 ```
 
