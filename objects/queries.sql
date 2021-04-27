@@ -25,3 +25,13 @@ SELECT  {
  } as content
  FROM demo d 
  WHERE ticketNo = "1762386738153"
+
+
+select d.baginfo.flightLegs, 
+       seq_transform(d.baginfo.flightLegs[],
+                         {
+                           "flightNo" : $.flightNo,
+                           "flightDate" : $.flightDate,
+						   "Actions" : $.actions
+                         } ) as Item
+from demo d
