@@ -6,4 +6,4 @@ CREATE TABLE if not exists demo(
   gender       STRING,
   bagInfo      JSON,
  PRIMARY KEY ( ticketNo )
- );
+ )
