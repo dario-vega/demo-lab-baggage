@@ -26,6 +26,20 @@ https://foo179.docs.apiary.io/#
 ![Working](ServiceConnector.PNG)
 
 ## CI/CD - Manual Deployment Documentation V0 :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
+
+Creating NoSQL tables
+```
+cd objects 
+DDL_TABLE=$(cat demo.nosql)
+oci nosql table create --compartment-id ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa   \
+--name demo --ddl-statement "$DDL_TABLE" \
+--table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
+
+DDL_TABLE=$(cat demoKeyVal.nosql)
+oci nosql table create --compartment-id ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa   \
+--name demoKeyVal  --ddl-statement "$DDL_TABLE" \
+--table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
+```
 Creating, testing and Deploying Functions
 ```
 
