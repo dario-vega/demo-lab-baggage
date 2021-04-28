@@ -77,3 +77,6 @@ fn invoke helloworld-app load-target < stream_baggage_data_file99.json
 fn delete function helloworld-app load-target
 
 ```
+
+Creating Using Terraform
+
