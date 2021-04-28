@@ -51,4 +51,12 @@ fn invoke helloworld-app demo-api | jq
 fn invoke helloworld-app demo-api | jq '. | length'
 fn delete function helloworld-app nosql-blogs
 
+cd functions-fn/streaming/load-target
+
+cd load-target
+fn -v deploy --app helloworld-app
+base64 -w 0 ../../BaggageData/baggage_data_file99.json > baggage_data_file99_base64.txt
+fn invoke helloworld-app load-target < test2.json
+fn delete function helloworld-app load-target
+
 ```
