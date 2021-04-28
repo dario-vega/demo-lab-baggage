@@ -55,8 +55,11 @@ cd functions-fn/streaming/load-target
 
 cd load-target
 fn -v deploy --app helloworld-app
-base64 -w 0 ../../BaggageData/baggage_data_file99.json > baggage_data_file99_base64.txt
-fn invoke helloworld-app load-target < test2.json
+var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
+cp test_templ.json stream_baggage_data_file99.json
+sed -i "s/<here>/$var1/g"  stream_baggage_data_file99.json
+
+fn invoke helloworld-app load-target < stream_baggage_data_file99.json
 fn delete function helloworld-app load-target
 
 ```
