@@ -12,6 +12,7 @@ In addition, by using these managed services together you gain the following ben
 *	No risk to your cost by over-provisioning. 
 *	No risk to your performance by under-provisioning.
 
+🎓: **Learn and Discover why NoSQL Cloud Services and OCI native services are compelling **
 
 ## TEST API ⏰:construction_worker:  :wrench:
 
