@@ -1,10 +1,32 @@
-"""
-This Function is under construction
-"""
+#
+# Copyright (c) 2021 Oracle, Inc.  All rights reserved.
+# Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
+#
+import io
+import oci
+import json
+import requests
+import logging
+import base64
+import pandas as pd
+from fdk import response
+
+import borneo
+import sys
+from borneo import (
+    AuthorizationProvider, DeleteRequest, GetRequest,
+    IllegalArgumentException, NoSQLHandle, NoSQLHandleConfig, PutRequest,
+    QueryRequest, Regions, TableLimits, TableRequest)
+from borneo.iam import SignatureProvider
+from borneo.kv import StoreAccessTokenProvider
+
 def handler(ctx, data: io.BytesIO=None):
     logger = logging.getLogger()
 
     try:
+
+        store_handle = get_handle()
+
         logs = json.loads(data.getvalue())
         logger.info('Received {} entries.'.format(len(logs)))
 
@@ -15,6 +37,27 @@ def handler(ctx, data: io.BytesIO=None):
             if 'key' in item:
                 item['key'] = base64_decode(item['key'])
 
+
+        #
+        # Put rows in NoSQL
+        #
+        request = PutRequest().set_table_name('demoKeyVal')
+        for item in logs:
+            if 'value' in item:
+               value = { 'value': json.loads(item['value'])}
+               request.set_value(value)
+               store_handle.put(request)
+
+        request = PutRequest().set_table_name('demo')
+        for item in logs:
+            if 'value' in item:
+               request.set_value_from_json(item['value'])
+               store_handle.put(request)
+
+
+        #
+        # return data in CSV mode
+        #
         df = pd.json_normalize(logs)
         csv_result = df.to_csv(index=False)
         return response.Response(ctx, status_code=200, response_data=csv_result, headers={"Content-Type": "text/csv"})
@@ -27,3 +70,9 @@ def base64_decode(encoded):
     base64_bytes = encoded.encode('utf-8')
     message_bytes = base64.b64decode(base64_bytes)
     return message_bytes.decode('utf-8')
+
+def get_handle():
+     provider = borneo.iam.SignatureProvider.create_with_resource_principal()
+     config = borneo.NoSQLHandleConfig('eu-frankfurt-1', provider).set_logger(None).set_default_compartment('ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa')
+     return borneo.NoSQLHandle(config)
+
