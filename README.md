@@ -16,7 +16,7 @@ In addition, by using these managed services together you gain the following ben
 
 ## TEST API
 
-A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate [here](demo-lab-baggage/functions-fn/api/demo-api/func.js)
+A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate [here](./functions-fn/api/demo-api/func.js)
 
 
 You can add serverless function back ends to an API deployment specification by using the Console. You can also this using Terraform.
