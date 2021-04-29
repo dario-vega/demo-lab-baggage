@@ -16,7 +16,7 @@ The fnproject/node docker images are currently using node v11.15.0. Because the 
 
 Currently, We are using node:12-slim in order to reduce the size of the docker image. In a near future, we will test using [GraalVM](https://www.graalvm.org/)
 
-If you want to test what is the node.js version used, use the following  func.js
+If you want to know which is the node.js version used, use the following func.js script
 
 ```` 
 const fdk=require('@fnproject/fdk')
