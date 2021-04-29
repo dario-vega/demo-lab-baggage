@@ -18,9 +18,9 @@ In addition, by using these managed services together you gain the following ben
 
 A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. Create a [function](./functions-fn/api/demo-api/func.js) which read the data from NoSQL table and implementing the logic tier.
 
-You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform.
-
 The API Gateway service enables you to publish APIs with private endpoints that are accessible from within your network, and which you can expose with public IP addresses if you want them to accept internet traffic. The endpoints support API validation, request and response transformation, CORS, authentication and authorization, and request limiting. 
+
+You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform.
 
 Then **USE** the endpoint to access the Data from your favorite API Browser:
 
