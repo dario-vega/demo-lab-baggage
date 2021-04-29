@@ -173,6 +173,9 @@ https://github.com/dario-vega/ndcs_baggage_tracking_demo
 ## CI/CD - Manual Deployment Documentation V0
 
 Creating, testing and Deploying Functions provided in this demo
+
+Read the [best practice](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
+
 ```
 
 cd functions-fn/load/
