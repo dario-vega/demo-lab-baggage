@@ -18,10 +18,11 @@ In addition, by using these managed services together you gain the following ben
 
 A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate [here](./functions-fn/api/demo-api/func.js)
 
-
 You can add serverless function back ends to an API deployment specification by using the Console. You can also this using Terraform.
 
 Then **USE** the endpoint to access the Data from your favorite API Browser:
+
+![Working](APIGW_Endpoints.png)
 
 - https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
 - https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
