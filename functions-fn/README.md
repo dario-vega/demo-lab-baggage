@@ -1,4 +1,4 @@
-# Best Practice Using Functions and NoSQLCS
+# Best Practice Using Functions and NoSQL
 
 **Authorizing with Resource Principal**
 
