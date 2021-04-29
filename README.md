@@ -53,6 +53,41 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 
 ## DEMO NoSQL and Functions 👷 ⏰ 🛠️
 
+Oracle NoSQL Database Cloud Service is a fully managed database cloud service that is designed for database operations that require predictable, single digit millisecond latency responses to simple queries. NoSQL Database Cloud Service allows developers to focus on application development rather than setting up cluster servers, or performing system monitoring, tuning, diagnosing, and scaling. NoSQL Database Cloud Service is suitable for applications such as Internet of Things, user experience personalization, instant fraud detection, and online display advertising. 
+
+Once you are authenticated against your Oracle Cloud account, you can create a NoSQL table, and specify throughput and storage requirements for the table. Oracle reserves and manages the resources to meet your requirements, and provisions capacity for you. Capacity is specified using read and write units for throughput and GB for storage units
+
+As a developer, you can connect to the Oracle NoSQL Database Cloud Service and work with NoSQL tables using the NoSQL SDKs available in multiple languages
+
+**In this demo, we will use NoSQL Database Python SDK and NoSQL Database Node.js SDK in conjuction with Oracle Functions.**
+
+Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want to focus on writing code to meet business needs. 
+
+**In this demo, we will show you how to use Resource Principals to do the connection to NoSQL Cloud Service.** To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the dynamic group access to that resource
+
+Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal provider uses a resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token is only valid for the resources to which the dynamic group has been granted access. 
+
+**NoSQL Database Node.js SDK**
+```
+function createClientResource() {
+  return  new NoSQLClient({
+    region: Region.EU_FRANKFURT_1,
+    compartment:'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa',
+    auth: {
+        iam: {
+            useResourcePrincipal: true
+        }
+    }
+  });
+}
+```
+**NoSQL Database Python SDK**
+```
+def get_handle():
+     provider = borneo.iam.SignatureProvider.create_with_resource_principal()
+     config = borneo.NoSQLHandleConfig('eu-frankfurt-1', provider).set_logger(None)
+     return borneo.NoSQLHandle(config)
+```
 
 ## IaC - NoSQL Tables Deployment Documentation V0
 
