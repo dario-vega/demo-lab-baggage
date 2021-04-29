@@ -14,7 +14,7 @@ In addition, by using these managed services together you gain the following ben
 
 🎓 **Learn and Discover why NoSQL Cloud Services and OCI native services are compelling**
 
-## TEST API
+## DEMO API
 
 A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. Create a [function](./functions-fn/api/demo-api/func.js) which read the data from NoSQL table and implementing the logic tier.
 
@@ -37,7 +37,7 @@ Apiary was used in our project as a very powerful tool for **Collaboration and I
 https://foo179.docs.apiary.io/#
 
 
-## TEST Service Connector (Streaming-Function)
+## DEMO Service Connector (Streaming-Function)
 
 Service Connector Hub is a cloud message bus platform that offers a single pane of glass for describing, executing, and monitoring movement of data between services in Oracle Cloud Infrastructure. 
 
@@ -50,6 +50,9 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 **NB** Be aware that we are not Handling large messages (larger than the 1 MB limit)
 
 ![Working](ServiceConnector.PNG)
+
+## DEMO NoSQL and Functions 👷 ⏰ 🛠️
+
 
 ## IaC - NoSQL Tables Deployment Documentation V0
 
