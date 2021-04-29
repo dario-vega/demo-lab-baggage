@@ -168,6 +168,9 @@ resource oci_nosql_table export_demo {
 }
 
 ```
+## Data for test
+
+https://github.com/dario-vega/ndcs_baggage_tracking_demo
 
 ## CI/CD - Manual Deployment Documentation V0
 
@@ -208,6 +211,9 @@ fn invoke helloworld-app load-target < stream_baggage_data_file99.json
 fn delete function helloworld-app load-target
 
 ```
-## Data for test
 
-https://github.com/dario-vega/ndcs_baggage_tracking_demo
+In order to configure your test system, you need follow the Instructions in the OCI Console - Getting Started 
+
+![Working](FunctionsSetup.png)
+
+
