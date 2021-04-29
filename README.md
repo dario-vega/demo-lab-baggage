@@ -16,9 +16,11 @@ In addition, by using these managed services together you gain the following ben
 
 ## TEST API
 
-A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. You can find the demo function used for this demo [here](./functions-fn/api/demo-api/func.js)
+A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. You can find the demo function used for this demo - reading data from NoSQL tables [here](./functions-fn/api/demo-api/func.js)
 
 You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform.
+
+The API Gateway service enables you to publish APIs with private endpoints that are accessible from within your network, and which you can expose with public IP addresses if you want them to accept internet traffic. The endpoints support API validation, request and response transformation, CORS, authentication and authorization, and request limiting. 
 
 Then **USE** the endpoint to access the Data from your favorite API Browser:
 
@@ -26,6 +28,8 @@ Then **USE** the endpoint to access the Data from your favorite API Browser:
 
 - https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
 - https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
+
+The API gateways you create with the API Gateway service are TLS-enabled, and therefore require TLS certificates (formerly SSL certificates) issued by a Certificate Authority to secure them. To specify a particular custom domain name for an API gateway, you must obtain a custom TLS certificate from a Certificate Authority yourself, rather than have the API Gateway service obtain a TLS certificate for you.
 
 Apiary provides you with the ability to design APIs using either API Blueprint or Swagger. From these description files, Oracle Apiary generates interactive documentation and a console for making calls to the APIs from the UI. Apiary interactive documentation is an interactive representation of your API Description for you to not only read and write, but to be a place where you can interact with your API—even before you’ve built it
 Apiary was used in our project as a very powerful tool for **Collaboration and Interactions**. 
@@ -39,7 +43,7 @@ Service Connector Hub is a cloud message bus platform that offers a single pane 
 
 Service Connector Hub orchestrates data movement between services in Oracle Cloud Infrastructure. 
 
-This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function in a service connector (Service Connector Hub)  to process and move log data from Streaming to a NOSQLCS table.
+This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function in a service connector (Service Connector Hub)  to process and move log data from Streaming to a NoSQL table.
 
 To test, you just need to Publishing Messages to the Stream instance from OCI COnsole (copy/paste the json document in Data text box.). 
 
