@@ -53,7 +53,7 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 
 ## IaC - NoSQL Tables Deployment Documentation V0
 
-Creating NoSQL tables using oci-cli
+Creating NoSQL tables using oci-cli - [tables](./objects)
 ```
 cd objects 
 DDL_TABLE=$(cat demo.nosql)
