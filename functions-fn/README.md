@@ -12,8 +12,7 @@ e.g follow the [NoSQL Database Node.js SDK](https://github.com/oracle/nosql-node
 
 # Best Practice Using Functions and NoSQL Database Node.js SDK
 
-The fnproject/node docker image are currently using v11.15.0. Because the Prerequisites for [Node.js SDK](https://github.com/oracle/nosql-node-sdk/blob/master/README.md) is 12.0.0 or higher, 
-We are provining a Dockerfile in order to build our own image.
+The fnproject/node docker image are currently using v11.15.0. Because the Prerequisites for [Node.js SDK](https://github.com/oracle/nosql-node-sdk/blob/master/README.md) is 12.0.0 or higher. This is why in this demo, We are provining a Dockerfile in order to build our own image.
 
 Currently, We are using node:12-slim in order to reduce the size of the docker image. In a near future, we will test using [GraalVM](https://www.graalvm.org/)
 
