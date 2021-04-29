@@ -1,6 +1,6 @@
 # Best Practice Using Functions and NoSQLCS
 
-Authorizing with Resource Principal
+**Authorizing with Resource Principal**
 
 *Resource Principal* is an IAM service feature that enables the resources to
 be authorized actors (or principals) to perform actions on service resources.
