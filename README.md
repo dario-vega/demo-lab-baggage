@@ -63,7 +63,7 @@ As a developer, you can connect to the Oracle NoSQL Database Cloud Service and w
 
 Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want to focus on writing code to meet business needs. 
 
-To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the dynamic group access to that resource. **In this demo, we will show you how to use Resource Principals to do the connection to NoSQL Cloud Service.** 
+To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the dynamic group access to that resource. 
 
 Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal provider uses a resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token is only valid for the resources to which the dynamic group has been granted access. 
 
@@ -89,7 +89,7 @@ You can find more information about NoSQL Privileges in the documentation- [Poli
 
 ![Working](Policies.png)
 
-
+After doing the setup, you just need use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
 
 **NoSQL Database Node.js SDK**
 ```
