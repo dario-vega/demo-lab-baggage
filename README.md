@@ -16,11 +16,11 @@ In addition, by using these managed services together you gain the following ben
 
 ## DEMO API
 
-A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. Create a [demo-api function](./functions-fn/api/demo-api/func.js) which read the data from NoSQL table and implementing the logic tier.
+A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. We created a [demo-api function](./functions-fn/api/demo-api/func.js) which read the data from NoSQL table and implementing the logic tier.
 
 The API Gateway service enables you to publish APIs with private endpoints that are accessible from within your network, and which you can expose with public IP addresses if you want them to accept internet traffic. The endpoints support API validation, request and response transformation, CORS, authentication and authorization, and request limiting. 
 
-You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform.
+You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform or calling directly the OCI API.
 
 Then **USE** the endpoint to access the Data from your favorite API Browser:
 
@@ -45,9 +45,7 @@ Service Connector Hub orchestrates data movement between services in Oracle Clou
 
 This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function in a service connector (Service Connector Hub)  to process and move Baggage data from Streaming to a NoSQL table.
 
-To test, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json document in Data text box.). 
-
-**NB** Be aware that **in this demo** we are not Handling large messages (larger than the 1 MB limit). For more information [go to the documentation](https://docs.oracle.com/en-us/iaas/Content/Streaming/Tasks/publishing.htm#handling_large_messages)
+To test, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json Baggage document in Data text box.). 
 
 ![Working](ServiceConnector.PNG)
 
