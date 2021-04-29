@@ -43,11 +43,11 @@ Service Connector Hub is a cloud message bus platform that offers a single pane 
 
 Service Connector Hub orchestrates data movement between services in Oracle Cloud Infrastructure. 
 
-This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function in a service connector (Service Connector Hub)  to process and move log data from Streaming to a NoSQL table.
+This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function in a service connector (Service Connector Hub)  to process and move Baggage data from Streaming to a NoSQL table.
 
 To test, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json document in Data text box.). 
 
-**NB** Be aware that we are not Handling large messages (larger than the 1 MB limit)
+**NB** Be aware that **in this demo** we are not Handling large messages (larger than the 1 MB limit). For more information [go to the documentation](https://docs.oracle.com/en-us/iaas/Content/Streaming/Tasks/publishing.htm#handling_large_messages)
 
 ![Working](ServiceConnector.PNG)
 
