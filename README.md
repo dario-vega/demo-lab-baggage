@@ -22,7 +22,17 @@ https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.co
 https://foo179.docs.apiary.io/#
 
 
-## TEST Service Connector (Streaming-Function) :construction_worker: :wrench: ⚠️
+## TEST Service Connector (Streaming-Function)
+
+Service Connector Hub is a cloud message bus platform that offers a single pane of glass for describing, executing, and monitoring movement of data between services in Oracle Cloud Infrastructure. 
+
+Service Connector Hub orchestrates data movement between services in Oracle Cloud Infrastructure. 
+
+This scenario involves creating the load-target function and then referencing that function in a service connector (Service Connector Hub)  to process and move log data from Streaming to a NOSQLCS table.
+
+To test, you just need to Publishing Messages to the Stream instance from OCI COnsole (copy/paste the json document in Data text box.). 
+
+**NB** Be aware that we are not Handling large messages (larger than the 1 MB limit)
 
 ![Working](ServiceConnector.PNG)
 
