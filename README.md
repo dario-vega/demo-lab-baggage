@@ -26,7 +26,7 @@ https://foo179.docs.apiary.io/#
 
 ![Working](ServiceConnector.PNG)
 
-## IAC - NoSQL Tables Deployment Documentation V0 :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
+## IaC - NoSQL Tables Deployment Documentation V0 :construction_worker: :wrench: :construction: 🔨 🛠️ ⚒️
 
 Creating NoSQL tables using oci-cli
 ```
