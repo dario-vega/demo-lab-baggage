@@ -14,10 +14,20 @@ In addition, by using these managed services together you gain the following ben
 
 🎓 **Learn and Discover why NoSQL Cloud Services and OCI native services are compelling**
 
-## TEST API ⏰:construction_worker:  :wrench:
+## TEST API
 
-https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
-https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
+A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate here, see (demo-lab-baggage/functions-fn/api/demo-api/)
+
+
+You can add serverless function back ends to an API deployment specification by using the Console. You can also this using Terraform.
+
+Then **USE** the endpoint to access the Data from your favorite API Browser:
+
+- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
+- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
+
+Apiary provides you with the ability to design APIs using either API Blueprint or Swagger. From these description files, Oracle Apiary generates interactive documentation and a console for making calls to the APIs from the UI. Apiary interactive documentation is an interactive representation of your API Description for you to not only read and write, but to be a place where you can interact with your API—even before you’ve built it
+Apiary was used in our project as a very powerful tool for **Collaboration and Interactions**. 
 
 https://foo179.docs.apiary.io/#
 
