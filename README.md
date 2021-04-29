@@ -105,7 +105,7 @@ resource oci_nosql_table export_demo {
 
 ## CI/CD - Manual Deployment Documentation V0
 
-Creating, testing and Deploying Functions
+Creating, testing and Deploying Functions provided in this demo
 ```
 
 cd functions-fn/load/
