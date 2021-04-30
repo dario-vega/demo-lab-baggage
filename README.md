@@ -119,7 +119,7 @@ def get_handle():
 
 ### Deployment Documentation V0
 
-#### IaC - NoSQL Tables Deployment Documentation V0
+#### IaC - NoSQL Tables Deployment
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects)
 ```
@@ -178,7 +178,7 @@ resource oci_nosql_table export_demo {
 
 https://github.com/dario-vega/ndcs_baggage_tracking_demo
 
-#### CI/CD - Manual Deployment Documentation V0
+#### CI/CD - Functions Manual Deployment
 
 Creating, testing and Deploying Functions provided in this demo
 
