@@ -54,6 +54,8 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 
 ![Working](PublishMessage.png)
 
+Or using OCI cli commands 
+
 ````
 cd load-target
 var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
