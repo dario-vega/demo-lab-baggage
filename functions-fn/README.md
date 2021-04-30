@@ -25,15 +25,13 @@ fdk.handle(async function(input){
  return process.version;
 })
 ````
+Under revision 🚧 👷
 
 **Best practices for package.json.** Use "oracle-nosqldb": ">=5.2.0" instead of fixing a version "oracle-nosqldb": "^5.2.0" 
 
-DO not install packages using npm in your local environnement. The local node_modules directory is being copied to the docker image and can generate incompatibilities. 
-It is mixing modules from different versions
+Be sure that you are not copying local node_modules directory to the docker image. It can generate incompatibilities if you are not using the same version in both side (local machine & docker image). 
 
-Under revision 🚧 👷
-
-question about best practice package-lock.json (currently I am deleting this file) 
+Delete the package-lock.json files before build your docker image.
 
 
 
