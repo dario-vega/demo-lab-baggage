@@ -16,7 +16,7 @@ In addition, by using these managed services together you gain the following ben
 
 🎓 **Learn and Discover why NoSQL Cloud Services and OCI native services are compelling**
 
-## DEMO API
+## DEMO API Gateway
 
 A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. We created a [demo-api function](./functions-fn/api/demo-api/func.js) which read the data from NoSQL table and implementing the logic tier.
 
