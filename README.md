@@ -61,7 +61,7 @@ cd load-target
 var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
 cp stream_oci_cli_templ.json stream_oci_cli_baggage_data_file99.json
 sed -i "s/<here>/$var1/g"  stream_oci_cli_baggage_data_file99.json
-oci streaming stream message put --stream-id ocid1.stream.oc1.eu-frankfurt-1.amaaaaaafrpx4mia4avbeztezwuiwqn7jwk4m6cvheyac5evowkylastovsq \
+oci streaming stream message put --stream-id $OCID \
 --messages file://stream_oci_cli_baggage_data_file99.json --endpoint https://cell-1.streaming.eu-frankfurt-1.oci.oraclecloud.com
 ````
   
