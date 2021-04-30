@@ -62,7 +62,7 @@ Once you are authenticated against your Oracle Cloud account, you can create a N
 
 As a developer, you can connect to the Oracle NoSQL Database Cloud Service and work with NoSQL tables using the NoSQL SDKs available in multiple languages
 
-**In this demo, we will use NoSQL Database Python SDK and NoSQL Database Node.js SDK in conjuction with Oracle Functions.**
+**In this demo, we will use NoSQL Database Python SDK and NoSQL Database Node.js SDK in conjunction with Oracle Functions.**
 
 Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want to focus on writing code to meet business needs. 
 
