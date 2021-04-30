@@ -22,7 +22,8 @@ from borneo.kv import StoreAccessTokenProvider
 
 def handler(ctx, data: io.BytesIO=None):
     logger = logging.getLogger()
-
+    logger.setLevel(logging.INFO)
+    
     try:
 
         store_handle = get_handle()
