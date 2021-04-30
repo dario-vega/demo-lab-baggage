@@ -54,6 +54,16 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 
 ![Working](PublishMessage.png)
 
+````
+cd load-target
+var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
+cp stream_oci_cli_templ.json stream_oci_cli_baggage_data_file99.json
+sed -i "s/<here>/$var1/g"  stream_oci_cli_baggage_data_file99.json
+oci streaming stream message put --stream-id ocid1.stream.oc1.eu-frankfurt-1.amaaaaaafrpx4mia4avbeztezwuiwqn7jwk4m6cvheyac5evowkylastovsq \
+--messages file://stream_oci_cli_baggage_data_file99.json --endpoint https://cell-1.streaming.eu-frankfurt-1.oci.oraclecloud.com
+````
+  
+
 ## DEMO NoSQL and Functions 👷 ⏰ 🛠️
 
 Oracle NoSQL Database Cloud Service is a fully managed database cloud service that is designed for database operations that require predictable, single digit millisecond latency responses to simple queries. NoSQL Database Cloud Service allows developers to focus on application development rather than setting up cluster servers, or performing system monitoring, tuning, diagnosing, and scaling. 
