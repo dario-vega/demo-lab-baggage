@@ -52,6 +52,7 @@ This scenario involves creating the [load-target](./functions-fn/streaming/load-
 
 To test, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json Baggage document in Data text box.). 
 
+![Working](PublishMessage.png)
 
 ## DEMO NoSQL and Functions 👷 ⏰ 🛠️
 
