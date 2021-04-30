@@ -1,6 +1,8 @@
 # demo-lab-baggage 
 
-The multi-tier application has been the most used architecture pattern for decades. The multi-tier pattern provides good guidelines for you to follow to ensure decoupled and scalable application components that can be separately managed and maintained.
+The multi-tier application has been the most used architecture pattern for decades. The multi-tier pattern provides good guidelines for you to follow to ensure decoupled and scalable application components that can be separately managed and maintained. 
+
+For detailed information about this demo, [read the following blog](https://blogs.oracle.com/nosql)
 
 ## The Serverless Logic Tier
 The logic tier of the three-tier architecture represents the brains of the application. Integrating API Gateway, Streams and functions to form your logic tier can be so revolutionary.
@@ -29,9 +31,10 @@ Then **USE** the endpoint to access the Data from your favorite API Browser:
 - https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
 - https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
 
-The API gateways you create with the API Gateway service are TLS-enabled, and therefore require TLS certificates (formerly SSL certificates) issued by a Certificate Authority to secure them. To specify a particular custom domain name for an API gateway, you must obtain a custom TLS certificate from a Certificate Authority yourself, rather than have the API Gateway service obtain a TLS certificate for you.
+Instead of using the generated EndPoint, you can specify a particular custom domain name for an API gateway. The API gateways you create with the API Gateway service are TLS-enabled, and therefore require TLS certificates (formerly SSL certificates) issued by a Certificate Authority to secure them. To specify a particular custom domain name for an API gateway, you must obtain a custom TLS certificate from a Certificate Authority yourself, rather than have the API Gateway service obtain a TLS certificate for you.
 
-Apiary provides you with the ability to design APIs using either API Blueprint or Swagger. From these description files, Oracle Apiary generates interactive documentation and a console for making calls to the APIs from the UI. Apiary interactive documentation is an interactive representation of your API Description for you to not only read and write, but to be a place where you can interact with your API—even before you’ve built it
+Finally, [Apiary](https://apiary.io/) provides you with the ability to design APIs using either API Blueprint or Swagger. From these description files, Oracle Apiary generates interactive documentation and a console for making calls to the APIs from the UI. Apiary interactive documentation is an interactive representation of your API Description for you to not only read and write, but to be a place where you can interact with your API—even before you’ve built it. 
+
 Apiary was used in our project as a very powerful tool for **Collaboration and Interactions**. 
 
 https://foo179.docs.apiary.io/#
@@ -111,7 +114,11 @@ def get_handle():
      return borneo.NoSQLHandle(config)
 ```
 
-## IaC - NoSQL Tables Deployment Documentation V0
+**Takeaway**: Read those ["best practice"](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
+
+### Deployment Documentation V0
+
+#### IaC - NoSQL Tables Deployment Documentation V0
 
 Creating NoSQL tables using oci-cli - [tables](./objects)
 ```
@@ -166,15 +173,14 @@ resource oci_nosql_table export_demo {
 }
 
 ```
-## Data for test
+#### Data for test
 
 https://github.com/dario-vega/ndcs_baggage_tracking_demo
 
-## CI/CD - Manual Deployment Documentation V0
+#### CI/CD - Manual Deployment Documentation V0
 
 Creating, testing and Deploying Functions provided in this demo
 
-Read the [best practice](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
 
 ```
 
