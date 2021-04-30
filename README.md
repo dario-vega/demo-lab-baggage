@@ -82,15 +82,14 @@ NB "_ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3h
 
 **Oracle NoSQL Database Cloud Service uses Oracle Cloud Infrastructure Identity and Access Management to provide secure access to Oracle Cloud.** Oracle Cloud Infrastructure Identity and Access Management enables you to create user accounts and give users permission to inspect, read, use, or manage tables. 
 
-For demo purpose, I am providing all rights to the Dynamic Group created in my compartment
+For demo purpose, I am providing all rights to the Dynamic Group created in my compartment.
 ```
 allow dynamic-group DV_APIGATEWAY to manage all-resources in compartment DARIO
 ```
-
+![Working](Policies.png)
 
 You can find more information about NoSQL Privileges in the documentation- [Policy Reference](https://docs.oracle.com/en/cloud/paas/nosql-cloud/csnsd/policy-reference.html#GUID-C194529F-2B38-4BDE-9777-2D3C0CF248D3)
 
-![Working](Policies.png)
 
 After doing the setup, you just need use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
 
