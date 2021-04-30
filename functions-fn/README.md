@@ -9,6 +9,13 @@ Service from other Oracle Cloud service resource such as Functions
 
 e.g follow the [NoSQL Database Node.js SDK](https://github.com/oracle/nosql-node-sdk/blob/master/doc/guides/connect-cloud.md) recommnedations
 
+# Best Practice Using Functions and NoSQL Database Python SDK
+
+It is recommanded to set the main logger level to something lower than debug 
+````
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+````
 
 # Best Practice Using Functions and NoSQL Database Node.js SDK
 
