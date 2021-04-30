@@ -64,8 +64,13 @@ def handler(ctx, data: io.BytesIO=None):
         return response.Response(ctx, status_code=200, response_data=csv_result, headers={"Content-Type": "text/csv"})
 
     except (Exception, ValueError) as e:
+        # For demo purpose, I am ignoring all errors
+        # During tests, I sent some no JSON messages to my Stream that were broken all
+        # If there is an error, in the next iteration I will receive all pending message from the Stream
+        # so continue to have the same error
+        logger.info('Logging and ignore the error')
         logger.error(str(e))
-        raise
+
 def base64_decode(encoded):
     if not encoded: return
     base64_bytes = encoded.encode('utf-8')
