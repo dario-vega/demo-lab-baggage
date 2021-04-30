@@ -6,7 +6,7 @@ For detailed information about this demo, [read the following blog](https://blog
 
 ## The Serverless Logic Tier
 The logic tier of the three-tier architecture represents the brains of the application. Integrating API Gateway, Streams and functions to form your logic tier can be so revolutionary.
-The features of the two services allow you to build a serverless production application that is highly available, scalable, and secure. Your application could use thousands of servers, however by leveraging this pattern you do not have to manage even a single one. 
+The features of those services allow you to build a serverless production application that is highly available, scalable, and secure. Your application could use thousands of servers, however by leveraging this pattern you do not have to manage even a single one. 
 
 In addition, by using these managed services together you gain the following benefits: 
 *	No operating systems to choose, secure, patch, or manage.
