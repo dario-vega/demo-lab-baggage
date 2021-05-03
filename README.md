@@ -54,15 +54,19 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 
 ![Working](PublishMessage.png)
 
-Or using OCI cli commands 
+Or using OCI cli commands in order to simulate a real-time traffic
 
 ````
-cd load-target
-var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
-cp stream_oci_cli_templ.json stream_oci_cli_baggage_data_file99.json
-sed -i "s/<here>/$var1/g"  stream_oci_cli_baggage_data_file99.json
-oci streaming stream message put --stream-id $OCID \
---messages file://stream_oci_cli_baggage_data_file99.json --endpoint $ENDPOINT
+for file in `ls -1 ../../BaggageData/* | tail -20`; do
+  echo $file
+  filename=`basename $file` 
+  var1=`base64 -w 0 $file`
+  cp stream_oci_cli_templ.json stream_oci_cli_$filename
+  sed -i "s/<here>/$var1/g"  stream_oci_cli_$filename
+  oci streaming stream message put --stream-id $OCIID \
+  --messages file://stream_oci_cli_$filename --endpoint $ENDPOINT
+  sleep 5
+done
 ````
   
 
