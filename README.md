@@ -146,6 +146,10 @@ def get_handle():
 
 **Takeaway**: Read those ["best practice"](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
 
+In this project, you hace the functions interacting with NoSQL tables that we used to implement 
+- the API demo
+- the Service Connector demo (Streaming-Function)
+
 ### Deployment Documentation V0
 
 #### IaC - NoSQL Tables Deployment
@@ -203,6 +207,8 @@ resource oci_nosql_table export_demo {
 }
 
 ```
+
+
 #### Data for test
 
 https://github.com/dario-vega/ndcs_baggage_tracking_demo
