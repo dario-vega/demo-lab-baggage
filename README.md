@@ -122,6 +122,8 @@ You can find more information about NoSQL Privileges in the documentation- [Poli
 
 After doing the setup, you just need use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
 
+⚠️As you can see here some harcoded references to an specific REGION. This is not the case in the final code
+
 **NoSQL Database Node.js SDK**
 ```
 function createClientResource() {
@@ -303,4 +305,3 @@ sudo groupadd docker
 sudo usermod -aG docker opc
 ``` 
 
-⚠️This demo currently runs in franckfurt region, Still some harcoded references to this specific REGION in the functions code to delete
