@@ -303,4 +303,4 @@ sudo groupadd docker
 sudo usermod -aG docker opc
 ``` 
 
-⚠️This demo currently runs in franckfurt region, Still some harcoded references to this specific REGION in the code to delete
+⚠️This demo currently runs in franckfurt region, Still some harcoded references to this specific REGION in the functions code to delete
