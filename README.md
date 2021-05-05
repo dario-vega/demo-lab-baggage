@@ -262,6 +262,15 @@ In order to configure your test system, you need follow the Instructions in the 
 
 ![Working](FunctionsSetup.png)
 
+NB : do not forget to add a section [davega] in your .oci/config file. In my case, davega is the fn context configured
+
+cat .fn/contexts/davega.yaml
+api-url: https://functions.eu-frankfurt-1.oraclecloud.com
+oracle.compartment-id:ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa
+provider: oracle
+registry: fra.ocir.io/<tenadncyname>/nosql_demos
+
+
 Installing docker in Oracle linux 7
 ``` 
 yum install docker-engine docker-cli
