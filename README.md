@@ -122,7 +122,7 @@ You can find more information about NoSQL Privileges in the documentation- [Poli
 
 After doing the setup, you just need use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
 
-⚠️As you can see here some harcoded references to an specific REGION. This is not the case in the final code
+⚠️In this snippet, there are harcoded references (eg REGION). This is not the case in the final code (read takeaways in this section)
 
 **NoSQL Database Node.js SDK**
 ```
