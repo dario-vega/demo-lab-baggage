@@ -32,7 +32,6 @@ fdk.handle(async function(input){
  return process.version;
 })
 ````
-Under revision 🚧 👷
 
 **Best practices for package.json.** Use "oracle-nosqldb": ">=5.2.0" instead of fixing a version "oracle-nosqldb": "^5.2.0" 
 
