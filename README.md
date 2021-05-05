@@ -258,7 +258,7 @@ fn delete function helloworld-app load-target
 
 ```
 
-In order to configure your test system, you need follow the Instructions in the OCI Console - Getting Started 
+In order to configure your LOCAL test system, you need to follow the Instructions in the OCI Console - Getting Started 
 
 ![Working](FunctionsSetup.png)
 
