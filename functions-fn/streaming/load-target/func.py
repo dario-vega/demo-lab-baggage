@@ -79,6 +79,8 @@ def base64_decode(encoded):
 
 def get_handle():
      provider = borneo.iam.SignatureProvider.create_with_resource_principal()
-     config = borneo.NoSQLHandleConfig('eu-frankfurt-1', provider).set_logger(None).set_default_compartment('ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa')
+     compartment_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.COMPARTMENT_ID_CLAIM_KEY)
+
+     config = borneo.NoSQLHandleConfig('eu-frankfurt-1', provider).set_logger(None).set_default_compartment(compartment_id)
      return borneo.NoSQLHandle(config)
 
