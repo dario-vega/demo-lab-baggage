@@ -262,4 +262,12 @@ In order to configure your test system, you need follow the Instructions in the 
 
 ![Working](FunctionsSetup.png)
 
+Installing docker in Oracle linux 7
+``` 
+yum install docker-engine docker-cli
+systemctl enable --now docker
+systemctl status docker
+sudo groupadd docker
+sudo usermod -aG docker opc
+``` 
 
