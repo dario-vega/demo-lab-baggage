@@ -280,3 +280,4 @@ sudo groupadd docker
 sudo usermod -aG docker opc
 ``` 
 
+⚠️This demo currently runs in franckfurt datacenter, I am in the process of deleting any harcoded code reference to this specific REGION
