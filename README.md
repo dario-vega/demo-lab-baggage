@@ -244,9 +244,12 @@ fn delete function helloworld-app demo-load
 cd api/demo-api
 
 fn -v deploy --app helloworld-app
-echo '{"ticketNo":"1762386738153"}' | fn invoke helloworld-app demo-api | jq
+echo '{"ticketNo":"1762386738153", "endPoint":"getBagInfoByTicketNumber"}' | fn invoke helloworld-app demo-api | jq
+echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke helloworld-app demo-api | jq
+echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke helloworld-app demo-api | jq '. | length'
+echo '{"endPoint":"getPassengersForBagRoute"}' | fn invoke helloworld-app demo-api | jq
+echo '{"endPoint":"demo-api"}' | fn invoke helloworld-app demo-api | jq
 fn invoke helloworld-app demo-api | jq
-fn invoke helloworld-app demo-api | jq '. | length'
 fn delete function helloworld-app nosql-blogs
 
 cd streaming/load-target
