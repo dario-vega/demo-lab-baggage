@@ -170,12 +170,12 @@ def get_handle():
 2. Create an API Key and Auth Token for your user
 3. Create a VCN with Internet Connectivity (VCN Wizard)
 4. Allows TCP traffic for ports: 443 HTTPS 
-5. Create the dynamic group and the policies
-7. Create the NoSQL Tables
+5. Create the dynamic group and the policies (guideleness are provided in privs/dynamic-group directory)
+7. Create the NoSQL Tables 
 9. Create the Function Application
 10. Create a VM instance - linux 7
 11. Configure the local machine for test (follow the Instructions in the OCI Console - Getting Started for this application)
-12. Deploy and test the functions
+12. Deploy and test the functions in this github repository
 13. Create the Stream
 14. Create and configure the Service Connector
 15. Create and configure the API Gateway
