@@ -63,7 +63,7 @@ fdk.handle(async function(input, ctx){
 
 function createClientResource() {
   return  new NoSQLClient({
-    region: Region.EU_FRANKFURT_1,
+    region: process.env.NOSQL_REGION,
     compartment:process.env.NOSQL_COMPARTMENT_ID,
     auth: {
         iam: {
