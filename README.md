@@ -259,7 +259,7 @@ cd streaming/load-target
 
 fn -v deploy --app $APP_NAME
 
-var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
+var1=`base64 -w 0 ~/BaggageData/baggage_data_file99.json`
 cp test_templ.json stream_baggage_data_file99.json
 sed -i "s/<here>/$var1/g"  stream_baggage_data_file99.json
 
