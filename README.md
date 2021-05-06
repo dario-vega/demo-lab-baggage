@@ -24,7 +24,7 @@ The API Gateway service enables you to publish APIs with private endpoints that 
 
 You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform or calling directly the OCI API.
 
-Then **USE** the endpoint to access the Data from your favorite API Browser:
+When the configuration will be finished, you could test the endpoints to retrieve Data using your favorite API Browser:
 
 ![Working](APIGW_Endpoints.png)
 
@@ -63,7 +63,7 @@ This scenario involves creating the [load-target](./functions-fn/streaming/load-
 
 ![Working](ServiceConnector.PNG)
 
-To test, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json Baggage document in Data text box.). 
+When the configuration will be finished, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json Baggage document in Data text box.). 
 
 ![Working](PublishMessage.png)
 
@@ -85,21 +85,32 @@ done
 
 ## DEMO NoSQL and Functions 👷 ⏰ 🛠️
 
-Oracle NoSQL Database Cloud Service is a fully managed database cloud service that is designed for database operations that require predictable, single digit millisecond latency responses to simple queries. NoSQL Database Cloud Service allows developers to focus on application development rather than setting up cluster servers, or performing system monitoring, tuning, diagnosing, and scaling. 
+Oracle NoSQL Database Cloud Service is a fully managed database cloud service that is designed for database operations that require predictable, single digit millisecond
+latency responses to simple queries. NoSQL Database Cloud Service allows developers to focus on application development rather than setting up cluster servers, or
+performing system monitoring, tuning, diagnosing, and scaling. 
 
-Once you are authenticated against your Oracle Cloud account, you can create a NoSQL table, and specify throughput and storage requirements for the table. Oracle reserves and manages the resources to meet your requirements, and provisions capacity for you. Capacity is specified using read and write units for throughput and GB for storage units
+Once you are authenticated against your Oracle Cloud account, you can create a NoSQL table, and specify throughput and storage requirements for the table. Oracle reserves
+and manages the resources to meet your requirements, and provisions capacity for you. Capacity is specified using read and write units for throughput and GB for storage
+units
 
 As a developer, you can connect to the Oracle NoSQL Database Cloud Service and work with NoSQL tables using the NoSQL SDKs available in multiple languages
 
 **In this demo, we will use NoSQL Database Python SDK and NoSQL Database Node.js SDK in conjunction with Oracle Functions.**
 
-Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service platform. It is built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want to focus on writing code to meet business needs. 
+Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service platform. It is built on enterprise-grade Oracle Cloud Infrastructure
+and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want to focus on writing code to meet business
+needs. 
 
-To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the dynamic group access to that resource. 
+To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the
+dynamic group access to that resource. 
 
-Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal provider uses a resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token is only valid for the resources to which the dynamic group has been granted access. 
+Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal provider uses a 
+resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token is only valid for the 
+resources to which the dynamic group has been granted access. 
 
-**Dynamic groups** allow you to group Oracle Cloud Infrastructure compute instances as "principal" actors (similar to user groups). You can then create policies to permit instances to make API calls against Oracle Cloud Infrastructure services. When you create a dynamic group, rather than adding members explicitly to the group, you instead define a set of matching rules to define the group members
+**Dynamic groups** allow you to group Oracle Cloud Infrastructure compute instances as "principal" actors (similar to user groups). You can then create policies to permit 
+instances to make API calls against Oracle Cloud Infrastructure services. When you create a dynamic group, rather than adding members explicitly to the group, you instead 
+define a set of matching rules to define the group members
 
 ```
 ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'}
@@ -109,7 +120,8 @@ NB "_ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3h
 
 ![Working](DynamicGroup.png)
 
-**Oracle NoSQL Database Cloud Service uses Oracle Cloud Infrastructure Identity and Access Management to provide secure access to Oracle Cloud.** Oracle Cloud Infrastructure Identity and Access Management enables you to create user accounts and give users permission to inspect, read, use, or manage tables. 
+**Oracle NoSQL Database Cloud Service uses Oracle Cloud Infrastructure Identity and Access Management to provide secure access to Oracle Cloud.** Oracle Cloud 
+Infrastructure Identity and Access Management enables you to create user accounts and give users permission to inspect, read, use, or manage tables. 
 
 For demo purpose, I am providing all rights to the Dynamic Group created in my compartment.
 ```
@@ -148,11 +160,23 @@ def get_handle():
 
 **Takeaway**: Read those ["best practice"](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
 
-In this project, you hace the functions interacting with NoSQL tables that we used to implement 
-- the API demo
-- the Service Connector demo (Streaming-Function)
 
-### Deployment Documentation V0
+
+### demo-lab-baggage deployment steps
+1. Create a compartment
+2. Create an API Key and Auth Token for your user
+3. Create a VCN with Internet Connectivity (VCN Wizard)
+4. Allows TCP traffic for ports: 443 HTTPS 
+5. Create the dynamic group and the policies
+7. Create the NoSQL Tables
+9. Create the Function Application
+10. Create a VM instance - linux 7
+11. Configure the local machine for test (follow the Instructions in the OCI Console - Getting Started for this application)
+12. Deploy and test the functions
+13. Create the Stream
+14. Create and configure the Service Connector
+15. Create and configure the API Gateway
+16. Execute the API and Streaming tests
 
 #### IaC - NoSQL Tables Deployment
 
@@ -312,21 +336,3 @@ systemctl status docker
 sudo groupadd docker
 sudo usermod -aG docker opc
 ``` 
-
-# demo-lab-baggage deployment steps
-1. Create a compartment
-2. Create an API Key and Auth Token for your user
-3. Create a VCN with Internet Connectivity (VCN Wizard)
-4. Allows TCP traffic for ports: 443 HTTPS 
-5. Create the dynamic group and the policies
-7. Create the NoSQL Tables
-9. Create the Function Application
-10. Create a VM instance - linux 7
-11. Configure the local machine for test (follow the Instructions in the OCI Console - Getting Started for this application)
-12. Deploy and test the functions
-13. Create the Stream
-14. Create and configure the Service Connector
-15. Create and configure the API Gateway
-16. Execute the API and Streaming tests
-
-
