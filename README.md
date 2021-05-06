@@ -70,7 +70,7 @@ To test, you just need to Publishing Messages to the Stream instance from OCI Co
 Or using OCI cli commands in order to simulate a real-time traffic
 
 ````
-for file in `ls -1 ../../BaggageData/* | tail -20`; do
+for file in `ls -1 ~/BaggageData/* | tail -20`; do
   echo $file
   filename=`basename $file` 
   var1=`base64 -w 0 $file`
