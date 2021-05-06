@@ -2,6 +2,7 @@
 # Copyright (c) 2021 Oracle, Inc.  All rights reserved.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 #
+import os
 import io
 import oci
 import json
@@ -81,6 +82,6 @@ def get_handle():
      provider = borneo.iam.SignatureProvider.create_with_resource_principal()
      compartment_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.COMPARTMENT_ID_CLAIM_KEY)
 
-     config = borneo.NoSQLHandleConfig('eu-frankfurt-1', provider).set_logger(None).set_default_compartment(compartment_id)
+     config = borneo.NoSQLHandleConfig(os.getenv('NOSQL_REGION'), provider).set_logger(None).set_default_compartment(compartment_id)
      return borneo.NoSQLHandle(config)
 
