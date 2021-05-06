@@ -56,7 +56,27 @@ Delete the package-lock.json files before build your docker image.
 # Reading the claimTenancyId and claimCompartmentId (python)
 
 ```` 
-compartment_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.COMPARTMENT_ID_CLAIM_KEY)
-tenant_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.TENANT_ID_CLAIM_KEY)
+claimCompartmentId = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.COMPARTMENT_ID_CLAIM_KEY)
+claimTenancyId = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.TENANT_ID_CLAIM_KEY)
 
 ```` 
+# Passing Custom Configuration Parameters to Functions 
+
+Use the OCI Console or the fn config function/app to create a variable
+```` 
+fn config app  helloworld-app NOSQL_COMPARTMENT_ID <myocid>
+```` 
+
+Reading the parameter in node.js
+function createClientResource() {
+  return  new NoSQLClient({
+    region: Region.EU_FRANKFURT_1,
+    compartment:process.env.NOSQL_COMPARTMENT_ID,
+    auth: {
+        iam: {
+            useResourcePrincipal: true
+        }
+    }
+  });
+}
+ 
