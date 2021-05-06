@@ -29,6 +29,9 @@ def handler(ctx, data: io.BytesIO=None):
 
         store_handle = get_handle()
 
+        #
+        # Decoding the stream message
+        #
         logs = json.loads(data.getvalue())
         logger.info('Received {} entries.'.format(len(logs)))
 
@@ -39,6 +42,11 @@ def handler(ctx, data: io.BytesIO=None):
             if 'key' in item:
                 item['key'] = base64_decode(item['key'])
 
+        #
+        # Processing the message
+        # For demo purpose, we are inserting the data as received
+        #
+                
 
         #
         # Put rows in NoSQL
