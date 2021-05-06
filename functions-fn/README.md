@@ -51,7 +51,7 @@ Delete the package-lock.json files before build your docker image.
   const claims = JSON.parse(payloadDecoded)
   const claimTenancyId = claims.res_tenant
   const claimCompartmentId = claims.res_compartment;
-
+  const region = claims.res_id.split('.')[3];
 ```` 
 # Reading the claimTenancyId and claimCompartmentId (python)
 
