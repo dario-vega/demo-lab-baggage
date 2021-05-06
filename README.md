@@ -222,6 +222,7 @@ Creating, testing and Deploying Functions provided in this demo
 
 ```
 fn config app  helloworld-app NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'
+fn config app  helloworld-app NOSQL_REGION 'eu-frankfurt-1'
 
 cd functions-fn/load/
 
