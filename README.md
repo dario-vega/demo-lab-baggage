@@ -76,8 +76,8 @@ for file in `ls -1 ~/BaggageData/* | tail -20`; do
   var1=`base64 -w 0 $file`
   cp stream_oci_cli_templ.json stream_oci_cli_$filename
   sed -i "s/<here>/$var1/g"  stream_oci_cli_$filename
-  oci streaming stream message put --stream-id $OCIID \
-  --messages file://stream_oci_cli_$filename --endpoint $ENDPOINT
+  oci streaming stream message put --stream-id  $STREAM_OCID \
+  --messages file://stream_oci_cli_$filename --endpoint $STREAM_ENDPOINT
   sleep 5
 done
 ````
