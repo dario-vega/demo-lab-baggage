@@ -40,4 +40,18 @@ Be sure that you are not copying local node_modules directory to the docker imag
 Delete the package-lock.json files before build your docker image.
 
 
+# Reading the claimTenancyId and claimCompartmentId (Node.js)
 
+  const sessionTokenFilePath = process.env.OCI_RESOURCE_PRINCIPAL_RPST
+  const rpst = fs.readFileSync(sessionTokenFilePath, {encoding: 'utf8'})
+  const payload = rpst.split('.')[1]
+  const buff = Buffer.from(payload, 'base64')
+  const payloadDecoded = buff.toString('ascii')
+  const claims = JSON.parse(payloadDecoded)
+  const claimTenancyId = claims.res_tenant
+  const claimCompartmentId = claims.res_compartment;
+
+# Reading the claimTenancyId and claimCompartmentId (python)
+
+compartment_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.COMPARTMENT_ID_CLAIM_KEY)
+tenant_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.TENANT_ID_CLAIM_KEY)
