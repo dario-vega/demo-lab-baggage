@@ -24,14 +24,10 @@ from borneo.kv import StoreAccessTokenProvider
 def handler(ctx, data: io.BytesIO=None):
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    
-    try:
 
+    try:
         store_handle = get_handle()
 
-        #
-        # Decoding the stream message
-        #
         logs = json.loads(data.getvalue())
         logger.info('Received {} entries.'.format(len(logs)))
 
@@ -42,13 +38,9 @@ def handler(ctx, data: io.BytesIO=None):
             if 'key' in item:
                 item['key'] = base64_decode(item['key'])
 
-        #
-        # Processing the message
-        # For demo purpose, we are inserting the data as received
-        #
-                
 
         #
+        # For demo purpose, we are inserting the data as received, no processing
         # Put rows in NoSQL
         #
         request = PutRequest().set_table_name('demoKeyVal')
@@ -63,8 +55,6 @@ def handler(ctx, data: io.BytesIO=None):
             if 'value' in item:
                request.set_value_from_json(item['value'])
                store_handle.put(request)
-
-
         #
         # return data in CSV mode
         #
@@ -92,4 +82,3 @@ def get_handle():
 
      config = borneo.NoSQLHandleConfig(os.getenv('NOSQL_REGION'), provider).set_logger(None).set_default_compartment(compartment_id)
      return borneo.NoSQLHandle(config)
-
