@@ -1,6 +1,6 @@
 # OCI examples commands to create the resources
 
-RULES=$(cat demo.nosql)
+RULES=$(cat example_dyn_group_rules.txt)
 oci iam dynamic-group create --name "$RULENAM" --matching-rule '$RULES' 
 
 oci iam policy create  --compartment-id 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq' \
