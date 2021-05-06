@@ -159,15 +159,17 @@ In this project, you hace the functions interacting with NoSQL tables that we us
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects)
 ```
 cd objects 
+COMP_ID="ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa"
 DDL_TABLE=$(cat demo.nosql)
-oci nosql table create --compartment-id ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa   \
+oci nosql table create --compartment-id $COMP_ID   \
 --name demo --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
 
 DDL_TABLE=$(cat demoKeyVal.nosql)
-oci nosql table create --compartment-id ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa   \
+oci nosql table create --compartment-id $COMP_ID   \
 --name demoKeyVal  --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
+
 ```
 
 Creating NoSQL tables Using Terraform - use the [demo-lab-baggage-terraform.zip](./demo-lab-baggage-terraform.zip) provided
