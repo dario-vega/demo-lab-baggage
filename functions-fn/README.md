@@ -67,7 +67,9 @@ Use the OCI Console or the fn config function/app to create a variable
 fn config app  helloworld-app NOSQL_COMPARTMENT_ID <myocid>
 ```` 
 
-Reading the parameter in node.js
+Read the parameter "NOSQL_COMPARTMENT_ID" in node.js as env variables
+
+```` 
 function createClientResource() {
   return  new NoSQLClient({
     region: Region.EU_FRANKFURT_1,
@@ -79,4 +81,5 @@ function createClientResource() {
     }
   });
 }
+```` 
  
