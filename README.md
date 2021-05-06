@@ -228,19 +228,21 @@ fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaamgv
 fn config app $APP_NAMEp NOSQL_REGION 'eu-frankfurt-1'
 
 git clone https://github.com/dario-vega/demo-lab-baggage
-cd demo-lab-baggage/functions-fn
 
+cd ~/demo-lab-baggage/functions-fn
 cd load/demo-keyval-load
 fn -v deploy --app $APP_NAME
 cat ~/BaggageData/baggage_data_file99.json | fn invoke $APP_NAME demo-keyval-load
-fn delete function $APP_NAME demo-keyval-load
+#fn delete function $APP_NAME demo-keyval-load
 
+cd ~/demo-lab-baggage/functions-fn
 cd load/demo-load
 fn -v deploy --app $APP_NAME
 cat ~/BaggageData/baggage_data_file99.json | fn invoke  $APP_NAME demo-load
 cat ~/BaggageData/baggage_data_file103.json  | fn invoke  $APP_NAME demo-load
-fn delete function $APP_NAME demo-load
+#fn delete function $APP_NAME demo-load
 
+cd ~/demo-lab-baggage/functions-fn
 cd api/demo-api
 
 fn -v deploy --app $APP_NAME
@@ -250,8 +252,9 @@ echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | 
 echo '{"endPoint":"getPassengersForBagRoute"}' | fn invoke $APP_NAME demo-api | jq
 echo '{"endPoint":"demo-api"}' | fn invoke $APP_NAME demo-api | jq
 fn invoke $APP_NAME demo-api | jq
-fn delete function $APP_NAME demo-api
+#fn delete function $APP_NAME demo-api
 
+cd ~/demo-lab-baggage/functions-fn
 cd streaming/load-target
 
 fn -v deploy --app $APP_NAME
@@ -261,7 +264,7 @@ cp test_templ.json stream_baggage_data_file99.json
 sed -i "s/<here>/$var1/g"  stream_baggage_data_file99.json
 
 fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
-fn delete function $APP_NAME load-target
+#fn delete function $APP_NAME load-target
 
 ```
 
