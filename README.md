@@ -28,16 +28,16 @@ Then **USE** the endpoint to access the Data from your favorite API Browser:
 
 ![Working](APIGW_Endpoints.png)
 
-- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
-- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api?ticketNo=1762386738153
+- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber
+- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber?ticketNo=1762386738153
 
 Or simulate traffic using API calls from a linux system
 
 ````
 IFS=$'\n'
 unset ticketNo
-ticketNo=($(curl https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api | jq -r '[.[].ticketNo] | .[]?'	))
-URL=https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/demo-api
+URL="https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber"
+ticketNo=($(curl ${URL} | jq -r '[.[].ticketNo] | .[]?'	))
 for (( i=0; i<${#ticketNo[@]}; i++ )); do
    curl -X GET -k -d '{"name":"${ticketNo[i]}"}' "${URL}?ticketNo=${ticketNo[i]}" 2>/dev/null | jq
    sleep 3
@@ -223,44 +223,45 @@ Creating, testing and Deploying Functions provided in this demo
 
 
 ```
-fn config app  helloworld-app NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'
-fn config app  helloworld-app NOSQL_REGION 'eu-frankfurt-1'
+export APP_NAME="helloworld-app"
+fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'
+fn config app $APP_NAMEp NOSQL_REGION 'eu-frankfurt-1'
 
 git clone https://github.com/dario-vega/demo-lab-baggage
 cd demo-lab-baggage/functions-fn
 
 cd load/demo-keyval-load
-fn -v deploy --app helloworld-app
-cat ../../BaggageData/baggage_data_file99.json | fn invoke helloworld-app demo-keyval-load
-cat ../../BaggageData/baggage_data_file103.json  | fn invoke helloworld-app demo-keyval-load
-fn delete function helloworld-app demo-keyval-load
+fn -v deploy --app $APP_NAME
+cat ~/BaggageData/baggage_data_file99.json | fn invoke $APP_NAME demo-keyval-load
+fn delete function $APP_NAME demo-keyval-load
 
 cd load/demo-load
-fn -v deploy --app helloworld-app
-cat ../../BaggageData/baggage_data_file99.json | fn invoke helloworld-app demo-load
-cat ../../BaggageData/baggage_data_file103.json  | fn invoke helloworld-app demo-load
-fn delete function helloworld-app demo-load
+fn -v deploy --app $APP_NAME
+cat ~/BaggageData/baggage_data_file99.json | fn invoke  $APP_NAME demo-load
+cat ~/BaggageData/baggage_data_file103.json  | fn invoke  $APP_NAME demo-load
+fn delete function $APP_NAME demo-load
 
 cd api/demo-api
 
-fn -v deploy --app helloworld-app
-echo '{"ticketNo":"1762386738153", "endPoint":"getBagInfoByTicketNumber"}' | fn invoke helloworld-app demo-api | jq
-echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke helloworld-app demo-api | jq
-echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke helloworld-app demo-api | jq '. | length'
-echo '{"endPoint":"getPassengersForBagRoute"}' | fn invoke helloworld-app demo-api | jq
-echo '{"endPoint":"demo-api"}' | fn invoke helloworld-app demo-api | jq
-fn invoke helloworld-app demo-api | jq
-fn delete function helloworld-app nosql-blogs
+fn -v deploy --app $APP_NAME
+echo '{"ticketNo":"1762386738153", "endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq
+echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq
+echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq '. | length'
+echo '{"endPoint":"getPassengersForBagRoute"}' | fn invoke $APP_NAME demo-api | jq
+echo '{"endPoint":"demo-api"}' | fn invoke $APP_NAME demo-api | jq
+fn invoke $APP_NAME demo-api | jq
+fn delete function $APP_NAME demo-api
 
 cd streaming/load-target
 
-fn -v deploy --app helloworld-app
+fn -v deploy --app $APP_NAME
+
 var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
 cp test_templ.json stream_baggage_data_file99.json
 sed -i "s/<here>/$var1/g"  stream_baggage_data_file99.json
 
-fn invoke helloworld-app load-target < stream_baggage_data_file99.json
-fn delete function helloworld-app load-target
+fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
+fn delete function $APP_NAME load-target
 
 ```
 
