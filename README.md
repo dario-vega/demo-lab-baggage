@@ -165,7 +165,7 @@ def get_handle():
 
 
 
-### demo-lab-baggage deployment steps
+## demo-lab-baggage deployment steps
 1. Create a compartment
 2. Create an API Key and Auth Token for your user
 3. Create a VCN with Internet Connectivity (VCN Wizard)
@@ -181,7 +181,7 @@ def get_handle():
 15. Create and configure the API Gateway
 16. Execute the API and Streaming tests
 
-#### IaC - NoSQL Tables Deployment
+### IaC - NoSQL Tables Deployment
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects)
 ```
@@ -240,11 +240,11 @@ resource oci_nosql_table export_demo {
 ```
 
 
-#### Data for test
+### Data for test
 
 https://github.com/dario-vega/ndcs_baggage_tracking_demo
 
-#### CI/CD - Functions Manual Deployment
+### CI/CD - Functions Manual Deployment
 
 Creating, testing and Deploying Functions provided in this demo
 
