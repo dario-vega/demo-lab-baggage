@@ -82,4 +82,17 @@ function createClientResource() {
   });
 }
 ```` 
- 
+
+Read the parameter "NOSQL_COMPARTMENT_ID" in python as env variables
+
+```` 
+import os
+
+def get_handle():
+     provider = borneo.iam.SignatureProvider.create_with_resource_principal()
+     compartment_id = provider.get_resource_principal_claim(borneo.ResourcePrincipalClaimKeys.COMPARTMENT_ID_CLAIM_KEY)
+     config = borneo.NoSQLHandleConfig(os.getenv('NOSQL_REGION'), provider).set_logger(None).set_default_compartment(compartment_id)
+     return borneo.NoSQLHandle(config)
+}
+```` 
+
