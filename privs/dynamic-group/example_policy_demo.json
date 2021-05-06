@@ -1,0 +1,10 @@
+[
+  "Allow service faas to use virtual-network-family in compartment davega",
+  "allow dynamic-group nosql_demos_davega to use functions-family  in compartment davega",
+  "allow any-user  to use functions-family  in compartment davega where ALL {request.principal.type = 'ApiGateway', request.resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}",
+  "allow dynamic-group nosql_demos_davega to manage all-resources in compartment davega",
+  "allow service FaaS to read repos in compartment davega",
+  "allow any-user to use fn-function in compartment id ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq where all {request.principal.type='serviceconnector',  request.principal.compartment.id='ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}",
+  "allow any-user to use fn-invocation in compartment id ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq where all {request.principal.type='serviceconnector',  request.principal.compartment.id='ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}",
+  "allow any-user to {STREAM_READ, STREAM_CONSUME} in compartment id ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq where all {request.principal.type='serviceconnector',  target.stream.id='ocid1.stream.oc1.eu-frankfurt-1.amaaaaaaknuwtjia4vqh3jgrntvykq3bybals6zwkd7fqxfadm2rrmhwgpxa',  request.principal.compartment.id='ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}"
+]
