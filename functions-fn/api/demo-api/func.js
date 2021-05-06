@@ -17,22 +17,50 @@ process.on('exit', function(code) {
 });
 
 fdk.handle(async function(input, ctx){
+
   let ticketNo;
+  let endPoint;
 
   if (input && input.ticketNo)
     ticketNo = input.ticketNo;
+  if (input && input.endPoint)
+    endPoint = input.endPoint;
 
   let hctx = ctx.httpGateway
   if (hctx  && hctx.requestURL) {
         var adr = hctx.requestURL;
         var q = url.parse(adr, true);
         ticketNo = q.query.ticketNo
+        endPoint = q.pathname.split('/')[2]
   }
+
 
   if ( !client ) {
     client = createClientResource();
   }
 
+  let rows;
+  if (endPoint == "getBagInfoByTicketNumber") {
+     rows = getBagInfoByTicketNumber(ticketNo);
+  }
+  else if (endPoint == "getPassengersForBagRoute") {
+     rows = {'message': endPoint + " under construction."}
+  }
+  else {
+     rows = {'message': endPoint + " not managed"}
+  }
+
+  //if (client) {
+  //         client.close();
+  //}
+
+  return rows;
+  return process.version;
+
+
+}, {});
+
+async function getBagInfoByTicketNumber (ticketNo) {
   const statementQry1 = `SELECT * FROM demo LIMIT ${lim}`;
   const statementQry2 = `SELECT * FROM demo WHERE ticketNo =  "${ticketNo}"`;
 
@@ -52,14 +80,9 @@ fdk.handle(async function(input, ctx){
   catch(err) {
         return err;
   }
-  //if (client) {
-  //         client.close();
-  //}
-
   return rows;
-  return process.version;
+}
 
-}, {});
 
 function createClientResource() {
   return  new NoSQLClient({
