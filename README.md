@@ -315,15 +315,15 @@ sudo usermod -aG docker opc
 
 # demo-lab-baggage deployment steps
 1. Create a compartment
-2. Create an API key and Auth Token
+2. Create an API Key and Auth Token for your user
 3. Create a VCN with Internet Connectivity (VCN Wizard)
 4. Allows TCP traffic for ports: 443 HTTPS 
 5. Create the dynamic group and the policies
-7. Create NoSQL Tables
-9. Create the Function Applications
-10. Create an VM instance - linux 7
+7. Create the NoSQL Tables
+9. Create the Function Application
+10. Create a VM instance - linux 7
 11. Configure the local machine for test (follow the Instructions in the OCI Console - Getting Started for this application)
-12. Deploy the functions
+12. Deploy and test the functions
 13. Create the Stream
 14. Create and configure the Service Connector
 15. Create and configure the API Gateway
