@@ -224,33 +224,31 @@ Creating, testing and Deploying Functions provided in this demo
 fn config app  helloworld-app NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'
 fn config app  helloworld-app NOSQL_REGION 'eu-frankfurt-1'
 
-cd functions-fn/load/
+git clone https://github.com/dario-vega/demo-lab-baggage
+cd demo-lab-baggage/functions-fn
 
-cd demo-keyval-load
+cd load/demo-keyval-load
 fn -v deploy --app helloworld-app
 cat ../../BaggageData/baggage_data_file99.json | fn invoke helloworld-app demo-keyval-load
 cat ../../BaggageData/baggage_data_file103.json  | fn invoke helloworld-app demo-keyval-load
 fn delete function helloworld-app demo-keyval-load
 
-cd demo-load
+cd load/demo-load
 fn -v deploy --app helloworld-app
 cat ../../BaggageData/baggage_data_file99.json | fn invoke helloworld-app demo-load
 cat ../../BaggageData/baggage_data_file103.json  | fn invoke helloworld-app demo-load
 fn delete function helloworld-app demo-load
 
-cd functions-fn/api/demo-api
+cd api/demo-api
 
-
-cd demo-api
 fn -v deploy --app helloworld-app
 echo '{"ticketNo":"1762386738153"}' | fn invoke helloworld-app demo-api | jq
 fn invoke helloworld-app demo-api | jq
 fn invoke helloworld-app demo-api | jq '. | length'
 fn delete function helloworld-app nosql-blogs
 
-cd functions-fn/streaming/load-target
+cd streaming/load-target
 
-cd load-target
 fn -v deploy --app helloworld-app
 var1=`base64 -w 0 ../../BaggageData/baggage_data_file99.json`
 cp test_templ.json stream_baggage_data_file99.json
