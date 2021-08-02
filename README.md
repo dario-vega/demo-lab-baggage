@@ -1,12 +1,14 @@
 # demo-lab-baggage 
 
-The multi-tier application has been the most used architecture pattern for decades. The multi-tier pattern provides good guidelines for you to follow to ensure decoupled and scalable application components that can be separately managed and maintained. 
+The multi-tier application has been the most used architecture pattern for decades. The multi-tier pattern provides good guidelines for 
+you to follow to ensure decoupled and scalable application components that can be separately managed and maintained. 
 
-For detailed information about this demo, [read the following blog](https://blogs.oracle.com/nosql)
+For introductory information about this demo, [read the following blog](https://blogs.oracle.com/nosql)
 
 ## The Serverless Logic Tier
-The logic tier of the three-tier architecture represents the brains of the application. Integrating API Gateway, Streams and functions to form your logic tier can be so revolutionary.
-The features of those services allow you to build a serverless production application that is highly available, scalable, and secure. Your application could use thousands of servers, however by leveraging this pattern you do not have to manage even a single one. 
+The logic tier of the three-tier architecture represents the brains of the application. Integrating these components: an API Gateway, Streams, and Functions; 
+in your logic tier can be revolutionary.  The features of these services allow you to build a serverless production application that is highly available, 
+scalable, and secure. Your application could use thousands of servers, however, by leveraging this pattern you do not have to manage even a single one. 
 
 In addition, by using these managed services together you gain the following benefits: 
 *	No operating systems to choose, secure, patch, or manage.
@@ -14,17 +16,23 @@ In addition, by using these managed services together you gain the following ben
 *	No risk to your cost by over-provisioning. 
 *	No risk to your performance by under-provisioning.
 
-🎓 **Learn and Discover why NoSQL Cloud Services and OCI native services are compelling**
+**Learn and Discover why NoSQL Cloud Services and OCI native services are compelling**
 
 ## DEMO API Gateway
 
-A common requirement is to build an API with serverless functions as a back end, and an API gateway providing front-end access to those functions. This is the scenario that we want to illustrate. We created a [demo-api function](./functions-fn/api/demo-api/func.js) which read the data from NoSQL table and implementing the logic tier.
+A common requirement is to build an API with serverless functions on the backend, and an API gateway providing front-end access to those functions. 
+This is the scenario that we want to illustrate. We created a [demo-api function](./functions-fn/api/demo-api/func.js) which reads data from a NoSQL 
+table, implementing part of the logic tier.
 
-The API Gateway service enables you to publish APIs with private endpoints that are accessible from within your network, and which you can expose with public IP addresses if you want them to accept internet traffic. The endpoints support API validation, request and response transformation, CORS, authentication and authorization, and request limiting. 
+The API Gateway service enables you to publish APIs with private endpoints that are accessible from within your network, or exposed with public IP addresses 
+if you want them to accept internet traffic. The endpoints support API validation, request and response transformation, CORS, 
+authentication and authorization, and request limiting.  You can access the API Gateway service to define API gateways and API deployments using the 
+OCI Console and the REST API. 
 
-You can add serverless function back ends to an API deployment specification by using the Console. You can also do this by using Terraform or calling directly the OCI API.
+Oracle Functions enables you to create serverless functions that are built as Docker images and pushed to a specified Docker registry.  
+You can add Oracle Functions to an API deployment specification by using the Console. You can also do this by using a JSON file.
 
-When the configuration will be finished, you could test the endpoints to retrieve Data using your favorite API Browser:
+When the configuration is finished, you can test the endpoints to retrieve Data using your favorite API Browser:
 
 ![Working](PostmanQuery.png)
 
@@ -44,12 +52,17 @@ for (( i=0; i<${#ticketNo[@]}; i++ )); do
 done
 ````
 
-Instead of using the generated EndPoint, you can specify a particular custom domain name for an API gateway. The API gateways you create with the API Gateway service are TLS-enabled, and therefore require TLS certificates (formerly SSL certificates) issued by a Certificate Authority to secure them. To specify a particular custom domain name for an API gateway, you must obtain a custom TLS certificate from a Certificate Authority yourself, rather than have the API Gateway service obtain a TLS certificate for you.
+Instead of using the generated endpoint, you can specify a particular custom domain name for an API gateway. The API gateways you create with
+the API Gateway service are TLS-enabled, and therefore require TLS certificates (formerly SSL certificates) issued by a Certificate Authority to 
+secure them. To specify a particular custom domain name for an API gateway, you must obtain a custom TLS certificate from a Certificate Authority, 
+rather than have the API Gateway service obtain a TLS certificate for you.
 
 ![Working](APIGW_Endpoints.png)
 
 
-Finally, [Apiary](https://apiary.io/) provides you with the ability to design APIs using either API Blueprint or Swagger. From these description files, Oracle Apiary generates interactive documentation and a console for making calls to the APIs from the UI. Apiary interactive documentation is an interactive representation of your API Description for you to not only read and write, but to be a place where you can interact with your API—even before you’ve built it. 
+Finally, [Apiary](https://apiary.io/) provides you with the ability to design APIs using either API Blueprint or Swagger. From these description files, 
+Oracle Apiary generates interactive documentation and a console for making calls to the APIs from the UI. Apiary interactive documentation is an interactive 
+representation of your API Description for you to not only read and write, but to be a place where you can interact with your API—even before you’ve built it. 
 
 Apiary was used in our project as a very powerful tool for **Collaboration and Interactions**. 
 
@@ -58,19 +71,21 @@ https://foo179.docs.apiary.io/#
 
 ## DEMO Service Connector (Streaming-Function)
 
-Service Connector Hub is a cloud message bus platform that offers a single pane of glass for describing, executing, and monitoring movement of data between services in Oracle Cloud Infrastructure. 
+Service Connector Hub is a cloud message bus platform that offers a single pane of glass for describing, executing, and monitoring movement of data 
+between services in Oracle Cloud Infrastructure. 
 
-Service Connector Hub orchestrates data movement between services in Oracle Cloud Infrastructure. 
+Service Connector Hub orchestrates data movement between services in the Oracle Cloud Infrastructure. 
 
-This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function in a service connector (Service Connector Hub)  to process and move Baggage data from Streaming to a NoSQL table.
+This scenario involves creating the [load-target](./functions-fn/streaming/load-target/func.py ) function and then referencing that function 
+in a service connector (Service Connector Hub)  to process and move baggage data from the "Streaming" source to a NoSQL table.
 
 ![Working](ServiceConnector.PNG)
 
-When the configuration will be finished, you just need to Publishing Messages to the Stream instance from OCI Console (copy/paste the json Baggage document in Data text box.). 
+When the configuration finishes, you need to publishing messages to the Stream instance from the OCI Console (copy/paste the json Baggage document in Data text box.). 
 
 ![Working](PublishMessage.png)
 
-Or using OCI cli commands in order to simulate a real-time traffic
+Or using OCI cli commands in order to simulate real-time traffic.
 
 ````
 for file in `ls -1 ~/BaggageData/baggage_data* | tail -20`; do
@@ -88,32 +103,32 @@ done
 
 ## DEMO NoSQL and Functions
 
-Oracle NoSQL Database Cloud Service is a fully managed database cloud service that is designed for database operations that require predictable, single digit millisecond
-latency responses to simple queries. NoSQL Database Cloud Service allows developers to focus on application development rather than setting up cluster servers, or
-performing system monitoring, tuning, diagnosing, and scaling. 
+Oracle NoSQL Database Cloud Service (NDCS) is a fully managed database cloud service that is designed for database operations that require predictable, 
+single digit millisecond latency responses to simple queries. NDCS allows developers to focus on application development rather than setting up cluster 
+servers, or performing system monitoring, tuning, diagnosing, and scaling. 
 
-Once you are authenticated against your Oracle Cloud account, you can create a NoSQL table, and specify throughput and storage requirements for the table. Oracle reserves
-and manages the resources to meet your requirements, and provisions capacity for you. Capacity is specified using read and write units for throughput and GB for storage
-units
+Once you are authenticated with your Oracle Cloud account, you can create a NoSQL table, and specify the throughput and storage requirements for the table. 
+Oracle reserves and manages the resources to meet your requirements, and provisions capacity for you. Capacity is specified using read and write units for 
+throughput and GB for storage units.
 
-As a developer, you can connect to the Oracle NoSQL Database Cloud Service and work with NoSQL tables using the NoSQL SDKs available in multiple languages
+As a developer, you can connect to NDCS and work with NoSQL tables using the NoSQL SDKs available in multiple languages.
 
 **In this demo, we will use NoSQL Database Python SDK and NoSQL Database Node.js SDK in conjunction with Oracle Functions.**
 
-Oracle Functions is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service platform. It is built on enterprise-grade Oracle Cloud Infrastructure
-and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) when you want to focus on writing code to meet business
-needs. 
+We briefly touched on Oracle Functions, additionally, it is a fully managed, multi-tenant, highly scalable, on-demand, Functions-as-a-Service (FaaS) platform. It is 
+built on enterprise-grade Oracle Cloud Infrastructure and powered by the Fn Project open source engine. Use Oracle Functions (sometimes abbreviated to just Functions) 
+when you want to focus on writing code to meet business needs. 
 
 To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the
 dynamic group access to that resource. 
 
-Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal provider uses a 
-resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token is only valid for the 
-resources to which the dynamic group has been granted access. 
+Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal 
+provider uses a resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token 
+is only valid for the resources to which the dynamic group has been granted access. 
 
-**Dynamic groups** allow you to group Oracle Cloud Infrastructure compute instances as "principal" actors (similar to user groups). You can then create policies to permit 
-instances to make API calls against Oracle Cloud Infrastructure services. When you create a dynamic group, rather than adding members explicitly to the group, you instead 
-define a set of matching rules to define the group members
+**Dynamic groups** allow you to group Oracle Cloud Infrastructure compute instances as "principal" actors (similar to user groups). You can then create policies to 
+permit instances to make API calls against Oracle Cloud Infrastructure services. When you create a dynamic group, rather than adding members explicitly to the group, 
+you instead define a set of matching rules to define the group members
 
 ```
 ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'}
@@ -135,9 +150,9 @@ allow dynamic-group DV_APIGATEWAY to manage all-resources in compartment DARIO
 You can find more information about NoSQL Privileges in the documentation- [Policy Reference](https://docs.oracle.com/en/cloud/paas/nosql-cloud/csnsd/policy-reference.html#GUID-C194529F-2B38-4BDE-9777-2D3C0CF248D3)
 
 
-After doing the setup, you just need use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
+After doing the setup, you just use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
 
-⚠️In this snippet, there are harcoded references (eg REGION). This is not the case in the final code (read takeaways in this section)
+¿¿In this snippet, there are hard-coded references (eg REGION). This is not the case in the final code (read takeaways in this section)
 
 **NoSQL Database Node.js SDK**
 ```
@@ -161,7 +176,7 @@ def get_handle():
      return borneo.NoSQLHandle(config)
 ```
 
-**Takeaway**: Read those ["best practice"](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
+**Takeaway**: Read ["best practice"](./functions-fn/README.md) when calling Oracle NoSQL Database Cloud Service from Functions
 
 
 
@@ -170,7 +185,7 @@ def get_handle():
 2. Create an API Key and Auth Token for your user
 3. Create a VCN with Internet Connectivity (VCN Wizard)
 4. Allows TCP traffic for ports: 443 HTTPS 
-5. Create the dynamic group and the policies (guideleness are provided in privs/dynamic-group directory)
+5. Create the dynamic group and the policies (guidelines are provided in privs/dynamic-group directory)
 7. Create the NoSQL Tables 
 9. Create the Function Application
 10. Create a VM instance - linux 7
@@ -246,7 +261,7 @@ https://github.com/dario-vega/ndcs_baggage_tracking_demo
 
 ### CI/CD - Functions Manual Deployment
 
-Creating, testing and Deploying Functions provided in this demo
+Creating, testing and deploying Functions provided in this demo
 
 
 ```
@@ -295,7 +310,7 @@ fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
 
 ```
 
-In order to configure your LOCAL test system, you need to follow the Instructions in the OCI Console - Getting Started 
+In order to configure your LOCAL test system, you need to follow the instructions in the OCI Console - Getting Started 
 
 ![Working](FunctionsSetup.png)
 
