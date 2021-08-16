@@ -1,8 +1,8 @@
 [
   "allow service FaaS to read repos in compartment demonosql",
   "Allow service faas to use virtual-network-family in compartment demonosql",
-  "allow dynamic-group nosql_demos_davega to use functions-family  in compartment demonosql",
-  "allow dynamic-group nosql_demos_davega to manage all-resources in compartment demonosql",
+  "allow dynamic-group nosql_demos to use functions-family  in compartment demonosql",
+  "allow dynamic-group nosql_demos to manage all-resources in compartment demonosql",
   "allow any-user  to use functions-family  in compartment demonosql where ALL {request.principal.type = 'ApiGateway', request.resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'}",
   "allow any-user to use fn-function in compartment id ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq where all {request.principal.type='serviceconnector',  request.principal.compartment.id='ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'}",
   "allow any-user to use fn-invocation in compartment id ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq where all {request.principal.type='serviceconnector',  request.principal.compartment.id='ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'}",
