@@ -45,7 +45,13 @@ Or simulate traffic using API calls from a linux system:
 ````
 IFS=$'\n'
 unset ticketNo
-URL="https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber"
+COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+HOSTAPI=`oci api-gateway gateway list --compartment-id $COMP_ID --lifecycle-state ACTIVE --display-name nosql_demos | jq -r '."data".items[]."hostname"'`
+URL="https://$HOSTAPI/BaggageDemo/getBagInfoByTicketNumber"
+echo $HOSTAPI
+echo $URL
+# URL="https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber"
+
 ticketNo=($(curl ${URL} | jq -r '[.[].ticketNo] | .[]?'	))
 for (( i=0; i<${#ticketNo[@]}; i++ )); do
    curl -X GET -k -d '{"name":"${ticketNo[i]}"}' "${URL}?ticketNo=${ticketNo[i]}" 2>/dev/null | jq
