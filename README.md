@@ -133,10 +133,10 @@ permit instances to make API calls against Oracle Cloud Infrastructure services.
 you instead define a set of matching rules to define the group members
 
 ```
-ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'}
-ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'}
+ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}
+ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}
 ```
-NOTE: "_ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa_" is the OCID for my test compartment DARIO.
+NOTE: "_ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq_" is the OCID for my test compartment.
 
 ![Working](DynamicGroup.png)
 
@@ -161,7 +161,7 @@ In this snippet, there are hard-coded references (eg REGION). This is not the ca
 function createClientResource() {
   return  new NoSQLClient({
     region: Region.EU_FRANKFURT_1,
-    compartment:'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa',
+    compartment:'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq',
     auth: {
         iam: {
             useResourcePrincipal: true
@@ -203,7 +203,7 @@ def get_handle():
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
 cd demo-lab-baggage/objects
-COMP_ID="ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa"
+COMP_ID="ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq"
 DDL_TABLE=$(cat demo.nosql)
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
@@ -327,7 +327,7 @@ fn use context davega
 ```
 cat .fn/contexts/davega.yaml
 api-url: https://functions.eu-frankfurt-1.oraclecloud.com
-oracle.compartment-id:ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa
+oracle.compartment-id:ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq
 provider: oracle
 registry: fra.ocir.io/<tenadncyname>/nosql_demos
 
