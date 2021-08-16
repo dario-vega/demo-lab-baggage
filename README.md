@@ -267,8 +267,8 @@ Creating, testing and deploying Functions provided in this demo.
 
 
 ```
-export APP_NAME="helloworld-app"
-fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa'
+export APP_NAME="nosql_demos"
+fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'
 fn config app $APP_NAME NOSQL_REGION 'eu-frankfurt-1'
 
 git clone https://github.com/dario-vega/demo-lab-baggage
