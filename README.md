@@ -145,7 +145,7 @@ Infrastructure Identity and Access Management enables you to create user account
 
 For demo purpose, I am providing all rights to the Dynamic Group created in my compartment.
 ```
-allow dynamic-group DV_APIGATEWAY to manage all-resources in compartment DARIO
+allow dynamic-group nosql-demos_davega to manage all-resources in compartment davega
 ```
 ![Working](Policies.png)
 
