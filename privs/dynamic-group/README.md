@@ -4,7 +4,7 @@
 cd ~/demo-lab-baggage/privs/dynamic-group
 export DYN_GROUP_NAME=nosql_demos
 RULES=$(cat example_dyn_group_rules.txt)
-oci iam dynamic-group create --name "$DYN_GROUP_NAME" --matching-rule '$RULES' 
+oci iam dynamic-group create --description "$DYN_GROUP_NAME" --name "$DYN_GROUP_NAME" --matching-rule '$RULES' 
 
 export POLICY_NAME=nosql_demos_faas
 oci iam policy create  --compartment-id 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq' \
