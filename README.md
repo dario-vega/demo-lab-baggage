@@ -36,6 +36,7 @@ When the configuration is finished, you can test the endpoints to retrieve Data 
 
 ![Working](PostmanQuery.png)
 
+Or use your standard WEB Browser to test the endpoints to retrieve Data as we did using PostMan
 - https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber
 - https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber?ticketNo=1762386738153
 
