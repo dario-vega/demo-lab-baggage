@@ -10,7 +10,8 @@ RULES=$(cat example_dyn_group_rules.txt)
 oci iam dynamic-group create --description "$DYN_GROUP_NAME" --name "$DYN_GROUP_NAME" --matching-rule "$RULES" 
 
 export POLICY_NAME=nosql_demos_faas
-oci iam policy create  --compartment-id $COMP_ID --name $POLICY_NAME --description $POLICY_NAME  --statements file://example_policy_demo.json 
+oci iam policy create  --compartment-id $COMP_ID --name $POLICY_NAME --description $POLICY_NAME \
+--statements file://example_policy_demo.json 
 ````
 You need to create the dynamic groups and privileges from your HOME region
 ````
