@@ -92,8 +92,13 @@ Or using OCI cli commands in order to simulate real-time traffic.
 ````
 cd ~/demo-lab-baggage/functions-fn
 cd streaming/load-target
-STREAM_OCID="ocid1.stream.oc1.eu-frankfurt-1.amaaaaaaknuwtjiasm6bxgakayddl7anotg7vse23c4l5dqv64nhlkihpnbq"
-STREAM_ENDPOINT=https://cell-1.streaming.eu-frankfurt-1.oci.oraclecloud.com
+COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
+STREAM_ENDPOINT=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[]."messages-endpoint"'`
+echo $COMP_ID
+echo $STREAM_OCID
+echo $STREAM_ENDPOINT
+
 for file in `ls -1 ~/BaggageData/baggage_data* | tail -20`; do
   echo $file
   filename=`basename $file` 
@@ -207,7 +212,8 @@ def get_handle():
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
 cd ~/demo-lab-baggage/objects
-COMP_ID="ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq"
+COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+echo $COMP_ID
 DDL_TABLE=$(cat demo.nosql)
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
@@ -271,8 +277,10 @@ Creating, testing and deploying Functions provided in this demo.
 
 
 ```
+COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+echo $COMP_ID
 export APP_NAME="nosql_demos"
-fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'
+fn config app $APP_NAME NOSQL_COMPARTMENT_ID $COMP_ID
 fn config app $APP_NAME NOSQL_REGION 'eu-frankfurt-1'
 
 git clone https://github.com/dario-vega/demo-lab-baggage
