@@ -133,10 +133,10 @@ permit instances to make API calls against Oracle Cloud Infrastructure services.
 you instead define a set of matching rules to define the group members
 
 ```
-ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}
-ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'}
+ALL {resource.type = 'ApiGateway', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'}
+ALL {resource.type = 'fnfunc', resource.compartment.id = 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'}
 ```
-NOTE: "_ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq_" is the OCID for my test compartment.
+NOTE: "_ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq_" is the OCID for my test compartment.
 
 ![Working](DynamicGroup.png)
 
@@ -161,7 +161,7 @@ In this snippet, there are hard-coded references (eg REGION). This is not the ca
 function createClientResource() {
   return  new NoSQLClient({
     region: Region.EU_FRANKFURT_1,
-    compartment:'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq',
+    compartment:'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq',
     auth: {
         iam: {
             useResourcePrincipal: true
@@ -185,25 +185,25 @@ def get_handle():
 ## demo-lab-baggage deployment steps
 1. Create a compartment
 2. Create an API Key and Auth Token for your user
-3. Create a VCN with Internet Connectivity (VCN Wizard)
+3. Create a VCN with Internet Connectivity (VCN Wizard) - vcn_nosql_demos
 4. Allows TCP traffic for ports: 443 HTTPS 
 5. Create the dynamic group and the policies (guidelines are provided in privs/dynamic-group directory)
-7. Create the NoSQL Tables 
-9. Create the Function Application
-10. Create a VM instance - linux 7
-11. Configure the local machine for test (follow the Instructions in the OCI Console - Getting Started for this application)
+7. Create the NoSQL Tables - ci below
+9. Create the Function Application - nosql_demos
+11. Configure Cloud Shell (follow the Instructions in the OCI Console - Getting Started for this application)
 12. Deploy and test the functions in this github repository
-13. Create the Stream
-14. Create and configure the Service Connector
-15. Create and configure the API Gateway
-16. Execute the API and Streaming tests
+13. Create the Stream - nosql_demos
+14. Create and configure the Service Connector - nosql_demos
+15. Create and configure the API Gateway - nosql_demos
+16. Update the policies with the good ocid
+17. Execute the API and Streaming tests
 
 ### IaC - NoSQL Tables Deployment
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
 cd ~/demo-lab-baggage/objects
-COMP_ID="ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq"
+COMP_ID="ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq"
 DDL_TABLE=$(cat demo.nosql)
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
@@ -268,7 +268,7 @@ Creating, testing and deploying Functions provided in this demo.
 
 ```
 export APP_NAME="nosql_demos"
-fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq'
+fn config app $APP_NAME NOSQL_COMPARTMENT_ID 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq'
 fn config app $APP_NAME NOSQL_REGION 'eu-frankfurt-1'
 
 git clone https://github.com/dario-vega/demo-lab-baggage
