@@ -18,16 +18,21 @@ echo $COMP_ID
 ````
 cd ~/demo-lab-baggage/privs/dynamic-group
 export DYN_GROUP_NAME=nosql_demos
-RULES=$(cat example_dyn_group_rules.txt)
+cp  example_dyn_group_rules.txt  dyn_group_rules.txt
+sed -i "s/<here>/$COMP_ID/g"  dyn_group_rules.txt
+RULES=$(cat dyn_group_rules.txt)
 oci iam dynamic-group create --description "$DYN_GROUP_NAME" --name "$DYN_GROUP_NAME" --matching-rule "$RULES" 
 ````
 2) set up the policies
 
 
 ````
+cd ~/demo-lab-baggage/privs/dynamic-group
 export POLICY_NAME=nosql_demos_faas
+cp  example_policy_demo.json  policy_demo.json
+sed -i "s/<here>/$COMP_ID/g"  policy_demo.json
 oci iam policy create  --compartment-id $COMP_ID --name $POLICY_NAME --description $POLICY_NAME \
---statements file://example_policy_demo.json 
+--statements file://policy_demo.json 
 ````
 You need to create the dynamic groups and privileges from your HOME region
 ````
