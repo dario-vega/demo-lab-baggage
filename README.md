@@ -90,6 +90,10 @@ When the configuration finishes, you need to publishing messages to the Stream i
 Or using OCI cli commands in order to simulate real-time traffic.
 
 ````
+cd ~/demo-lab-baggage/functions-fn
+cd streaming/load-target
+STREAM_OCID="ocid1.stream.oc1.eu-frankfurt-1.amaaaaaaknuwtjiasm6bxgakayddl7anotg7vse23c4l5dqv64nhlkihpnbq"
+STREAM_ENDPOINT=https://cell-1.streaming.eu-frankfurt-1.oci.oraclecloud.com
 for file in `ls -1 ~/BaggageData/baggage_data* | tail -20`; do
   echo $file
   filename=`basename $file` 
@@ -194,7 +198,7 @@ def get_handle():
 12. Deploy and test the functions in this github repository
 13. Create the Stream - nosql_demos
 14. Create and configure the Service Connector - nosql_demos
-15. Create and configure the API Gateway - nosql_demos
+15. Create and configure the API Gateway - nosql_demos - /BaggageDemo/{api}
 16. Update the policies with the good ocid
 17. Execute the API and Streaming tests
 
