@@ -36,15 +36,15 @@ When the configuration is finished, you can test the endpoints to retrieve Data 
 
 ![Working](PostmanQuery.png)
 
-- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber
-- https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber?ticketNo=1762386738153
+- https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber
+- https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber?ticketNo=1762386738153
 
 Or simulate traffic using API calls from a linux system:
 
 ````
 IFS=$'\n'
 unset ticketNo
-URL="https://ibjktcfgy3nuktwxv73doau3ae.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber"
+URL="https://mhjtooqavkfb4zujtsv5cnagza.apigateway.eu-frankfurt-1.oci.customer-oci.com/BaggageDemo/getBagInfoByTicketNumber"
 ticketNo=($(curl ${URL} | jq -r '[.[].ticketNo] | .[]?'	))
 for (( i=0; i<${#ticketNo[@]}; i++ )); do
    curl -X GET -k -d '{"name":"${ticketNo[i]}"}' "${URL}?ticketNo=${ticketNo[i]}" 2>/dev/null | jq
