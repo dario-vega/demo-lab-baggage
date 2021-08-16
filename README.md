@@ -202,7 +202,7 @@ def get_handle():
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
-cd demo-lab-baggage/objects
+cd ~/demo-lab-baggage/objects
 COMP_ID="ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq"
 DDL_TABLE=$(cat demo.nosql)
 oci nosql table create --compartment-id "$COMP_ID"   \
