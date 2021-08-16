@@ -1,10 +1,13 @@
 ## Examples - OCI commands to create dynamic-group and policies
 
 ````
+cd ~/demo-lab-baggage/privs/dynamic-group
+export DYN_GROUP_NAME=nosql_demos
 RULES=$(cat example_dyn_group_rules.txt)
 oci iam dynamic-group create --name "$DYN_GROUP_NAME" --matching-rule '$RULES' 
 
-oci iam policy create  --compartment-id 'ocid1.compartment.oc1..aaaaaaaa4mlehopmvdluv2wjcdp4tnh2ypjz3nhhpahb4ss7yvxaa3be3diq' \
+export POLICY_NAME=nosql_demos_faas
+oci iam policy create  --compartment-id 'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq' \
 --name $POLICY_NAME --statements file://example_policy_demo.json 
 ````
 
