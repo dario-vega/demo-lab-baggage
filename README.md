@@ -18,7 +18,8 @@ In addition, by using these managed services together you gain the following ben
 
 **Learn and Discover why NoSQL Cloud Services and OCI native services are compelling**
 
-## DEMO API Gateway
+
+## DEMO-API-Gateway
 
 A common requirement is to build an API with serverless functions on the backend, and an API gateway providing front-end access to those functions. 
 This is the scenario that we want to illustrate. We created a [demo-api function](./functions-fn/api/demo-api/func.js) which reads data from a NoSQL 
@@ -77,7 +78,7 @@ Apiary was used in our project as a very powerful tool for **Collaboration and I
 https://foo179.docs.apiary.io/#
 
 
-## DEMO Service Connector
+## DEMO-Service-Connector
 
 Service Connector Hub is a cloud message bus platform that offers a single pane of glass for describing, executing, and monitoring movement of data 
 between services in Oracle Cloud Infrastructure. 
@@ -197,7 +198,7 @@ def get_handle():
 
 
 
-## demo-lab-baggage deployment steps
+## demo-lab-baggage-deployment-steps
 1. Create a compartment - demonosql 
 2. Create an API Key and Auth Token for your user
 3. Create a VCN with Internet Connectivity (VCN Wizard) - vcn_nosql_demos
