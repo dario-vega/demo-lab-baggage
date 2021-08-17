@@ -36,7 +36,7 @@ guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) direc
 
 ## Step 6. Create the NoSQL Tables -
 
-guidelines are provided in [demo-lab-baggage deployment steps](README.md) section of README
+guidelines are provided in [demo-lab-baggage deployment steps](README.md#demo-lab-baggage-deployment-steps) section of README
 
 ## Step 7. Create the Function Application - nosql_demos
 
@@ -54,7 +54,7 @@ follow the Instructions in the OCI Console - Getting Started for this applicatio
 
 ## Step 9. Deploy and test the functions in this github repository
 
-guidelines are provided in [demo-lab-baggage deployment steps](README.md) section of README
+guidelines are provided in [demo-lab-baggage deployment steps](README.md#demo-lab-baggage-deployment-steps) section of README
 
 ## Step 10. Create the Stream
 
@@ -113,4 +113,8 @@ if you created the default policy allowing this service connector, you don't nee
 
 ## Step 14. Execute the API and Streaming tests
 
-guidelines are provided in the  reamdme
+guidelines are provided in the reamdme :
+
+1. [DEMO-Service-Connector](./README.md#DEMO-Service-Connector) 
+2. [DEMO-API-Gateway](./README.md#DEMO-API-Gateway) 
+
