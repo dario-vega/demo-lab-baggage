@@ -26,7 +26,9 @@ Choose **vcn_nosql_demos** as VCN Name, click next and Create it.
 
 ## Step 4. Allows TCP traffic for ports: 443 HTTPS 
 
+On the left Click on Security Lists, Click on **Default Security List for vcn_nosql_demos** and then **Ingress Rules** This opens up a new window
 
+Choose **0.0.0.0/0** as Source CIDR, then **TCP** as IP Protocol, then **443** as Destination Port Range and add it
 
 ## Step 5. Create the dynamic group and the policies 
 
