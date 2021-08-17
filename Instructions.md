@@ -4,7 +4,7 @@ Go to OCI console -> Identity & Security -> Compartments.
 
 Click on Create Compartment. This opens up a new window.
 
-Choose **demonosql** as compartement name, choose a description and add it.
+Choose **demonosql** as compartment name, choose a description and add it.
 
 ## Step 2. Create an API Key and Auth Token for your user
 
@@ -12,7 +12,7 @@ Login to OCI console.
 
 Click on your Profile -> User Settings. On the bottom left, click on Auth Tokens. Click on Generate Token.
 
-Provide a discription and then hit Generate Token. This will generate a token. **Make sure to copy the token and save it for future steps**.
+Provide a description and then hit Generate Token. This will generate a token. **Make sure to copy the token and save it for future steps**.
 
 ## Step 3. Create a VCN with Internet Connectivity (VCN Wizard) - vcn_nosql_demos
 
@@ -46,13 +46,13 @@ On the left List Scope - Compartment - choose demonosql compartment
 
 Click on Create Application. This opens up a new window.
 
-Choose **nosql_demos** as Name, Choose the VCN created in steop 3, Choose the **public** subnet and Create it.
+Choose **nosql_demos** as Name, Choose the VCN created in step 3, Choose the **public** subnet and Create it.
 
 ## Step 8. Configure Cloud Shell 
 
 follow the Instructions in the OCI Console - Getting Started for this application
 
-## Step 9. Deploy and test the functions in this github repository
+## Step 9. Deploy and test the functions in this GitHub repository
 
 guidelines are provided in [demo-lab-baggage deployment steps](README.md#demo-lab-baggage-deployment-steps) section of README
 
@@ -99,7 +99,7 @@ Choose **nosql_demos** as Name, Choose the VCN created in step 3, Choose the **p
 
 On the left choose Deployments
 
-Click on Create Deployment. This opens up a new window. Uset the From Scratch wizard
+Click on Create Deployment. This opens up a new window. Use the From Scratch wizard
 
 Choose **BaggageDemo** as Name, Choose **/BaggageDemo** as path prefix and click Next
 Choose **/{api}** as a Path, Choose GET as a Method, Choose Oracle Functions as Type, Choose **nosql_demos** as Application and then **demo-api** as a Function Name
@@ -113,7 +113,7 @@ if you created the default policy allowing this service connector, you don't nee
 
 ## Step 14. Execute the API and Streaming tests
 
-guidelines are provided in the reamdme :
+guidelines are provided in the README:
 
 1. [DEMO-Service-Connector](./README.md#DEMO-Service-Connector) 
 2. [DEMO-API-Gateway](./README.md#DEMO-API-Gateway) 
