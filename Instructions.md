@@ -34,7 +34,7 @@ guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) direc
 
 ## Step 6. Create the NoSQL Tables -
 
-guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
+guidelines are provided in [demo-lab-baggage deployment steps](README.md) section of README
 
 ## Step 7. Create the Function Application - nosql_demos
 
@@ -52,7 +52,7 @@ follow the Instructions in the OCI Console - Getting Started for this applicatio
 
 ## Step 9. Deploy and test the functions in this github repository
 
-guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
+guidelines are provided in [demo-lab-baggage deployment steps](README.md) section of README
 
 ## Step 10. Create the Stream
 
@@ -77,7 +77,7 @@ Choose **nosql_demos** as Connector Name, provide a description
 Choose streaming as a source and functions as a target 
 
 On the Configure Source panel, choose **default** as Stream Pool and **nosql_demos** as Stream
-On the Configure Target panel, choose **nosql_demos** as Function Application and **nosql_demos** as Stream
+On the Configure Target panel, choose **nosql_demos** as Function Application and **load-target** as Function
 
 Create default policy allowing this service connector to read from Streaming in compartment demonosql.
 Create default policy allowing this service connector to write to Functions in compartment demonosql.
@@ -95,7 +95,13 @@ Click on Create Gateway. This opens up a new window.
 
 Choose **nosql_demos** as Name, Choose the VCN created in step 3, Choose the **public** subnet and Create it.
 
+On the left choose Deployments
 
+Click on Create Deployment. This opens up a new window. Uset the From Scratch wizard
+
+Choose **BaggageDemo** as Name, Choose **/BaggageDemo** as path prefix and click Next
+Choose **/{api}** as a Path, Choose GET as a Method, Choose Oracle Functions as Type, Choose **nosql_demos** as Application and then **demo-api** as a Function Name
+Click on Next and Create it.
 
 
 ## Step 13. Update the policies with the good ocid- if needed
@@ -105,4 +111,4 @@ if you created the default policy allowing this service connector, you don't nee
 
 ## Step 14. Execute the API and Streaming tests
 
-guidelines are provided in  reamdme
+guidelines are provided in the  reamdme
