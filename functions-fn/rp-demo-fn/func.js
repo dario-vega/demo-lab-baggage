@@ -31,6 +31,6 @@ fdk.handle(function(input){
   const nosqlcmp = process.env.NOSQL_COMPARTMENT_ID;
   const version = process.env.OCI_RESOURCE_PRINCIPAL_VERSION
 
-  return rocess.env.OCI_RESOURCE_PRINCIPAL_REGION;
+  return process.env.OCI_RESOURCE_PRINCIPAL_REGION;
   return process.version;
 })
