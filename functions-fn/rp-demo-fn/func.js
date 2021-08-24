@@ -29,9 +29,8 @@ fdk.handle(function(input){
   const keyId = `ST$${rpst}`
 
   const nosqlcmp = process.env.NOSQL_COMPARTMENT_ID;
-
   const version = process.env.OCI_RESOURCE_PRINCIPAL_VERSION
 
-  return region;
+  return rocess.env.OCI_RESOURCE_PRINCIPAL_REGION;
   return process.version;
 })
