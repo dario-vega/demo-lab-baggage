@@ -201,20 +201,22 @@ def get_handle():
 ## demo-lab-baggage-deployment-steps
 1. Create a compartment - demonosql 
 2. Create an API Key and Auth Token for your user
-3. Create a VCN with Internet Connectivity (VCN Wizard) - vcn_nosql_demos
-4. Allows TCP traffic for ports: 443 HTTPS 
-5. Create the dynamic group and the policies (guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
-7. Create the NoSQL Tables - ci-below
-8. Create the Function Application - nosql_demos
-9. Configure Cloud Shell (follow the Instructions in the OCI Console - Getting Started for this application)
-10. Deploy and test the functions in this github repository - ci-below
-11. Create the Stream - nosql_demos
-12. Create and configure the Service Connector - nosql_demos
-13. Create and configure the API Gateway - nosql_demos - /BaggageDemo/{api}
-14. Update the policies with the good ocid- if needed
-15. Execute the API and Streaming tests provided ci-above
+3. Create the dynamic group and the policies (guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
+4. Create a VCN with Internet Connectivity (VCN Wizard) - vcn_nosql_demos
+5. Allows TCP traffic for ports: 443 HTTPS 
+6. Create the NoSQL Tables - ci-below
+7. Create the Function Application - nosql_demos
+8. Configure Cloud Shell (follow the Instructions in the OCI Console - Getting Started for this application)
+9. Deploy and test the functions in this github repository - ci-below
+10. Create the Stream - nosql_demos
+11. Create and configure the Service Connector - nosql_demos
+12. Create and configure the API Gateway - nosql_demos - /BaggageDemo/{api}
+13. Update the policies with the good ocid- if needed
+14. Execute the API and Streaming tests provided ci-above
 
 More detailed information in this file [Instructions.md](./Instructions.md) 
+
+You can also use the terraform script provided. It will execute steps 4-13 and create the applicationt for you.
 
 ### IaC - NoSQL Tables Deployment
 
