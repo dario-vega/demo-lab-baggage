@@ -83,9 +83,9 @@ resource oci_nosql_table export_demo {
 
 ###  Adding Data to the NoSQL table from the OCI Console 
 
-(copy/paste the json Baggage document in Data text box.). 
+(copy/paste the json Baggage document in Data text box for DEMO TABLE). 
 
-###  Explaining difference between the 2 tables by executing queries
+###  Show data from the Console
 
 Execute SELECT * FROM  the OCI Console
 
