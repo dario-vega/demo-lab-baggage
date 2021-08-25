@@ -61,7 +61,7 @@
         title: "OCIR user password"
         description: "Oracle Cloud Infrastructure Registry user password (your OCI user authtoken)" 
 
-     outputs:
+    outputs:
 
       Upload2StreamFn_POST_EndPoint_URL:
         title: "Upload2StreamFn POST endpoint URL"
