@@ -2,7 +2,7 @@ variable region {  }
 variable compartment_ocid {  }
 variable "tenancy_ocid" {}
 variable "application_id" {
-  default = "ocid1.fnapp.oc1.eu-frankfurt-1.aaaaaaaaywrjowh6eevboplpkysl6efwjftb22xaj4gycx3km35tkizj7arq"
+  default = "ocid1.fnapp.oc1.eu-frankfurt-1.aaaaaaaasvc6mme7vns3usdnlncal42joibs2lhpg6xi4uvjuiz7dioy4ixa"
 }
 
 variable "ocir_repo_name" {
