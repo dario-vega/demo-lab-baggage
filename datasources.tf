@@ -14,7 +14,7 @@ data "oci_identity_tenancy" "oci_tenancy" {
     tenancy_id = var.tenancy_ocid
 }
 
-data "oci_apigateway_deployment" "apigateway_deployment" {
-    deployment_id = oci_apigateway_deployment.apigateway_deployment.id
+data "oci_apigateway_deployment" "export_BaggageDemo" {
+    deployment_id = oci_apigateway_deployment.export_BaggageDemo.id
 }
 
