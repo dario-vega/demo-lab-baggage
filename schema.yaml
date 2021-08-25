@@ -61,13 +61,4 @@
         title: "OCIR user password"
         description: "Oracle Cloud Infrastructure Registry user password (your OCI user authtoken)" 
 
- outputs:
-
-      oci_apigateway_deployment_URL:
-        title: "demo-lab-baggage endpoint URL"
-        displayText: "demo-lab-baggage endpoint URL"
-        type: copyableString
-        visible: true
-
-
-      
+ 
