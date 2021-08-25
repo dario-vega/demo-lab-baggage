@@ -239,6 +239,8 @@ oci nosql table create --compartment-id "$COMP_ID"   \
 --table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
 
 DDL_TABLE=$(cat demoKeyVal.nosql)
+echo $DDL_TABLE
+
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demoKeyVal  --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
