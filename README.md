@@ -232,6 +232,8 @@ cd ~/demo-lab-baggage/objects
 COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 echo $COMP_ID
 DDL_TABLE=$(cat demo.nosql)
+echo $DDL_TABLE
+
 oci nosql table create --compartment-id "$COMP_ID"   \
 --name demo --ddl-statement "$DDL_TABLE" \
 --table-limits="{\"maxReadUnits\": 15,  \"maxStorageInGBs\": 1,  \"maxWriteUnits\": 15 }"
