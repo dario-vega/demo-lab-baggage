@@ -2,7 +2,7 @@
 
 
 resource oci_functions_function export_rp-demo-fn {
-  depends_on     = [null_resource.p-demo-fnPush2OCIR]
+  depends_on     = [null_resource.rp-demo-fnPush2OCIR]
   application_id = var.application_id
   config = {
   }
