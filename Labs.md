@@ -1,4 +1,4 @@
-#WORKSHOP OUTLINE
+# WORKSHOP OUTLINE
 1. Setup
 2. PRESENTATION OF APPLICATION AND USE CASE
 3. DEMO NoSQL and Functions
@@ -11,17 +11,14 @@
 ## LAB1 - Setup
 1. Create a compartment - demonosql 
 2. Create an API Key and Auth Token for your user
-3. Use the terraform scripts provided.
-4. Cloud Shell COnfiguration - clone github and execute shell data.sh
+3. Use the terraform scripts provided. [![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=eu-frankfurt-1&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
+4. Cloud Shell Configuration - clone github and execute shell data.sh
 6. Create the dynamic group and the policies (guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
-
-
-[![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=eu-frankfurt-1&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
 
 
 ## LAB3 DEMO NoSQL and Functions
 
-### IaC - NoSQL Tables Deployment
+###  NoSQL Tables Deployment
 
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
@@ -84,8 +81,22 @@ resource oci_nosql_table export_demo {
 
 ```
 
+Adding Data to the NoSQL table from the OCI Console (copy/paste the json Baggage document in Data text box.). 
 
-### Review Code Functions Loading Data
+Execute SELECT * FROM  the OCI Console
+
+
+```
+cd ~/demo-lab-baggage/objects
+cat queries.sql
+
+```
+
+
+
+## LAB4  Review Code Functions 
+
+1. Execute the code
 
 ```
 COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
@@ -123,6 +134,8 @@ sed -i "s/<here>/$var1/g"  stream_baggage_data_file99.json
 fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
 
 ```
+
+2. Show the code
 
 ## DEMO-Service-Connector
 
