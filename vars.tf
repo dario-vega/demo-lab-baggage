@@ -1,7 +1,7 @@
 variable region {  }
 variable compartment_ocid {  }
 variable "application_id" {
-  default = ""
+  default = "ocid1.fnapp.oc1.eu-frankfurt-1.aaaaaaaaywrjowh6eevboplpkysl6efwjftb22xaj4gycx3km35tkizj7arq"
 }
 
 variable "ocir_repo_name" {
@@ -9,7 +9,7 @@ variable "ocir_repo_name" {
 }
 
 variable "ocir_user_name" {
-  default = "ocid1.fnapp.oc1.eu-frankfurt-1.aaaaaaaaywrjowh6eevboplpkysl6efwjftb22xaj4gycx3km35tkizj7arq"
+  default = ""
 }
 
 variable "ocir_user_password" {
