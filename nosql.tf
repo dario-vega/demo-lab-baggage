@@ -10,9 +10,9 @@ resource oci_nosql_table export_demo {
   is_auto_reclaimable = "false"
   name                = "demo"
   table_limits {
-    max_read_units     = "10"
+    max_read_units     = "25"
     max_storage_in_gbs = "1"
-    max_write_units    = "10"
+    max_write_units    = "25"
   }
 }
 
@@ -26,9 +26,9 @@ resource oci_nosql_table export_demoKeyVal {
   is_auto_reclaimable = "false"
   name                = "demoKeyVal"
   table_limits {
-    max_read_units     = "10"
+    max_read_units     = "25"
     max_storage_in_gbs = "1"
-    max_write_units    = "10"
+    max_write_units    = "25"
   }
 }
 
