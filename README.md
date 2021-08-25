@@ -216,7 +216,7 @@ def get_handle():
 
 More detailed information in this file [Instructions.md](./Instructions.md) 
 
-You can also use the terraform script provided. It will execute steps 4-13 and create the applicationt for you.
+You can also use the terraform script provided. It will execute steps 4-12 and create the applicationt for you.
 
 ### IaC - NoSQL Tables Deployment
 
