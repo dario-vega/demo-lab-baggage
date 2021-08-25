@@ -13,22 +13,22 @@ resource "null_resource" "rp-demo-fnPush2OCIR" {
 
   provisioner "local-exec" {
     command = "image=$(docker images | grep rp-demo-fn | awk -F ' ' '{print $3}') ; docker rmi -f $image &> /dev/null ; echo $image"
-    working_dir = "functions-fn/api/rp-demo-fn"
+    working_dir = "functions-fn/rp-demo-fn"
   }
 
   provisioner "local-exec" {
     command = "fn build --verbose"
-    working_dir = "functions-fn/api/rp-demo-fn"
+    working_dir = "functions-fn/rp-demo-fn"
   }
 
   provisioner "local-exec" {
-    command = "image=$(docker images | grep demo-api | awk -F ' ' '{print $3}') ; docker tag $image ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/rp-demo-fn:0.0.1"
-    working_dir = "functions-fn/api/rp-demo-fn"
+    command = "image=$(docker images | grep rp-demo-fn | awk -F ' ' '{print $3}') ; docker tag $image ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/rp-demo-fn:0.0.1"
+    working_dir = "functions-fn/rp-demo-fn"
   }
 
   provisioner "local-exec" {
     command = "docker push ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/rp-demo-fn:0.0.1"
-    working_dir = "functions-fn/api/rp-demo-fn"
+    working_dir = "functions-fn/rp-demo-fn"
   }
 
 }
