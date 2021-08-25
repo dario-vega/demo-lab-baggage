@@ -1,11 +1,11 @@
 # WORKSHOP OUTLINE
 1. Setup
 2. PRESENTATION OF APPLICATION AND USE CASE
-3. DEMO NoSQL and Functions
-4. Review Code Functions
+3. NoSQL 
+4. Execute and Review Code Functions
 5. Execute Streaming tests 
 6. Execute API tests
-7. Review Code API
+8. Review Streaming/API/Functions configuration
 
 
 ## LAB1 - Setup
@@ -16,7 +16,7 @@
 6. Create the dynamic group and the policies (guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
 
 
-## LAB3 DEMO NoSQL and Functions
+## LAB3 NoSQL
 
 ###  NoSQL Tables Deployment
 
@@ -81,22 +81,20 @@ resource oci_nosql_table export_demo {
 
 ```
 
-Adding Data to the NoSQL table from the OCI Console (copy/paste the json Baggage document in Data text box.). 
+###  Adding Data to the NoSQL table from the OCI Console (copy/paste the json Baggage document in Data text box.). 
 
-Execute SELECT * FROM  the OCI Console
+###  Execute SELECT * FROM  the OCI Console
 
-
+###  Show queries - Working in progress
 ```
 cd ~/demo-lab-baggage/objects
 cat queries.sql
 
 ```
 
+## LAB4  Execute and Review Code Functions
 
-
-## LAB4  Review Code Functions 
-
-1. Execute the code
+###  Execute the code
 
 ```
 COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
@@ -135,15 +133,15 @@ fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
 
 ```
 
-2. Show the code
+###  Show the code
 
-## DEMO-Service-Connector
+## LAB5 Execute Streaming tests
 
 Publishing messages to the Stream instance from the OCI Console (copy/paste the json Baggage document in Data text box.). 
 
 ![Working](PublishMessage.png)
 
-Or using OCI cli commands in order to simulate real-time traffic.
+using OCI cli commands in order to simulate real-time traffic.
 
 ````
 cd ~/demo-lab-baggage/functions-fn
@@ -168,7 +166,7 @@ done
 ````
 
 
-## DEMO-API-Gateway
+## LAB6 Execute API tests
 
 
 ````
@@ -187,5 +185,7 @@ for (( i=0; i<${#ticketNo[@]}; i++ )); do
 done
 ````
 
-  
+## LAB7  Review Streaming/API/Functions configuration
+
+Show OCI Console
 
