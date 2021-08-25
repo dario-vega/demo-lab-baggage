@@ -63,6 +63,6 @@
 
       oci_apigateway_deployment_URL:
         title: "API endpoint URL"
-        displayText: "API endpoint URL"
+        displayText: "API endpoint URL example"
         type: copyableString
         visible: true
