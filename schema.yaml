@@ -59,3 +59,10 @@
         title: "OCIR user password"
         description: "Oracle Cloud Infrastructure Registry user password (your OCI user authtoken)" 
 
+    outputs:
+
+      oci_apigateway_deployment_URL:
+        title: "API endpoint URL"
+        displayText: "API endpoint URL"
+        type: copyableString
+        visible: true
