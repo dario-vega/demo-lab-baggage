@@ -211,7 +211,7 @@ def get_handle():
 10. Create the Stream - nosql_demos
 11. Create and configure the Service Connector - nosql_demos
 12. Create and configure the API Gateway - nosql_demos - /BaggageDemo/{api}
-13. Update the policies with the good ocid- if needed
+13. Update the policies with the good STREAM ocid- if needed
 14. Execute the API and Streaming tests provided ci-above
 
 More detailed information in this file [Instructions.md](./Instructions.md) 
