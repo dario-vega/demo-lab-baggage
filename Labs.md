@@ -165,7 +165,7 @@ for file in `ls -1 ~/BaggageData/baggage_data* | tail -20`; do
   sed -i "s/<here>/$var1/g"  stream_oci_cli_$filename
   oci streaming stream message put --stream-id  $STREAM_OCID \
   --messages file://stream_oci_cli_$filename --endpoint $STREAM_ENDPOINT
-  sleep 5
+  sleep 2
 done
 ````
 
@@ -185,7 +185,7 @@ echo $URL
 ticketNo=($(curl ${URL} | jq -r '[.[].ticketNo] | .[]?'	))
 for (( i=0; i<${#ticketNo[@]}; i++ )); do
    curl -X GET -k -d '{"name":"${ticketNo[i]}"}' "${URL}?ticketNo=${ticketNo[i]}" 2>/dev/null | jq
-   sleep 3
+   sleep 2
 done
 ````
 
