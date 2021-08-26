@@ -46,7 +46,11 @@ fdk.handle(async function(input, ctx){
   else if (endPoint == "getPassengersForBagRoute") {
      rows = {'message': endPoint + " under construction."}
   }
-  else {
+  else if (endPoint == "getLastBagLocation") {
+     rows = {'message': endPoint + " under construction."}
+  else if (endPoint == "getPassengersAffectedByAirport") {
+     rows = {'message': endPoint + " under construction."}
+  }  else {
      rows = {'message': endPoint + " not managed"}
   }
 
