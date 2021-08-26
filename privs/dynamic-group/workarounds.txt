@@ -1,8 +1,5 @@
 allow service FaaS to read repos in tenancy
 Allow service FaaS to use virtual-network-family in tenancy
-Allow service FaaS to use virtual-network-family in compartment networks
 ALLOW dynamic-group nosql_demos to read instance-family in tenancy
 allow dynamic-group nosql_demos to inspect vcns in tenancy
 allow dynamic-group nosql_demos to read secret-family in tenancy
-allow dynamic-group nosql_demos to use virtual-network-family in compartment networks
-allow dynamic-group nosql_demos to manage public-ips in compartment networks
