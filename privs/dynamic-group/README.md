@@ -27,13 +27,14 @@ oci iam dynamic-group create --description "$DYN_GROUP_NAME" --name "$DYN_GROUP_
 
 
 ````
-STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
 
 cd ~/demo-lab-baggage/privs/dynamic-group
 export POLICY_NAME=nosql_demos_faas
+STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
+echo $STREAM_OCID
 cp  example_policy_demo.json  policy_demo.json
 sed -i "s/<here>/$COMP_ID/g"  policy_demo.json
-#sed -i "s/<streamid>/$STREAM_OCID/g"  policy_demo.json
+sed -i "s/<streamid>/$STREAM_OCID/g"  policy_demo.json
 oci iam policy create  --compartment-id $COMP_ID --name $POLICY_NAME --description $POLICY_NAME \
 --statements file://policy_demo.json 
 ````
