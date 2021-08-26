@@ -51,6 +51,7 @@ fdk.handle(async function(input, ctx){
   }
   else {
      rows = {'message': endPoint + " not managed"}
+     hctx.statusCode=500;
   }
 
   //if (client) {
