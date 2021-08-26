@@ -112,7 +112,7 @@ cat ~/BaggageData/baggage_data_file99.json | fn invoke $APP_NAME demo-keyval-loa
 
 cd ~/demo-lab-baggage/functions-fn
 cd load/demo-load
-cat ~/BaggageData/baggage_data_file99.json | fn invoke  $APP_NAME demo-load
+cat ~/BaggageData/baggage_data_file99.json | fn invoke  $APP_NAME demo-load | jq
 cat ~/BaggageData/baggage_data_file103.json  | fn invoke  $APP_NAME demo-load
 
 
