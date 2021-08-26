@@ -18,14 +18,15 @@ process.on('exit', function(code) {
 
 fdk.handle(async function(input, ctx){
 
-  let ticketNo;
   let endPoint;
-
-  if (input && input.ticketNo)
-    ticketNo = input.ticketNo;
+  let ticketNo;
+  // reading parameter from standard input for DEBUG/TEST purposes
   if (input && input.endPoint)
     endPoint = input.endPoint;
+  if (input && input.ticketNo)
+    ticketNo = input.ticketNo;
 
+  // reading parameter sent by the httpGateway
   let hctx = ctx.httpGateway
   if (hctx  && hctx.requestURL) {
         var adr = hctx.requestURL;
@@ -43,13 +44,20 @@ fdk.handle(async function(input, ctx){
   if (endPoint == "getBagInfoByTicketNumber") {
      rows = getBagInfoByTicketNumber(ticketNo);
   }
+  else if (endPoint == "getPassengersAffectedByFlight") {
+    // SELECT d.ticketNum as ticketNo, d.name as fullName, d.content.contactPhone as contactInfo, size(d.content.bagInfo) as numBags
+		// FROM demo d WHERE d.bagInfo.flightLegs.flightNo =ANY ${flightNo};
+     rows = {'message': endPoint + " under construction."}
+  }
   else if (endPoint == "getPassengersForBagRoute") {
      rows = {'message': endPoint + " under construction."}
   }
   else if (endPoint == "getLastBagLocation") {
      rows = {'message': endPoint + " under construction."}
+  }
   else if (endPoint == "getPassengersAffectedByAirport") {
      rows = {'message': endPoint + " under construction."}
+  }
   }  else {
      rows = {'message': endPoint + " not managed"}
   }
