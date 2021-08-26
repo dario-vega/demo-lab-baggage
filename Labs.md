@@ -12,7 +12,7 @@
 1. Create a compartment - demonosql 
 2. Create an API Key and Auth Token for your user
 3. Use the terraform scripts provided. [![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=eu-frankfurt-1&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
-4. Cloud Shell Configuration - clone github and execute shell data.sh
+4. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 6. Create the dynamic group and the policies (guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
 
 
