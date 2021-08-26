@@ -122,7 +122,7 @@ cd api/demo-api
 echo '{"ticketNo":"1762386738153", "endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq
 echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq
 echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq '. | length'
-echo '{"endPoint":"getPassengersForBagRoute"}' | fn invoke $APP_NAME demo-api | jq
+echo '{"endPoint":"getPassengersAffectedByFlight"}' | fn invoke $APP_NAME demo-api | jq
 echo '{"endPoint":"demo-api"}' | fn invoke $APP_NAME demo-api | jq
 fn invoke $APP_NAME demo-api | jq
 
