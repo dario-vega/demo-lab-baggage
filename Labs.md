@@ -1,11 +1,10 @@
 # WORKSHOP OUTLINE
 1. Setup
-2. PRESENTATION OF APPLICATION AND USE CASE
-3. NoSQL 
-4. Execute and Review Code Functions
-5. Execute Streaming tests 
-6. Execute API tests
-8. Review Streaming/API/Functions configuration
+2. NoSQL 
+3. Execute and Review Code Functions
+4. Execute Streaming tests 
+5. Execute API tests
+6. Review Streaming/API/Functions configuration
 
 
 ## LAB1 - Setup
@@ -78,7 +77,7 @@ Note: In the step 4 replace [OCIR-REPO] by nosql_demos
 Use the guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
 
 
-## LAB3 NoSQL
+## LAB2 NoSQL
 
 ### Step 1. NoSQL Tables Deployment
 
@@ -178,7 +177,7 @@ cat queries.sql
 
 ```
 
-## LAB4  Execute and Review Code Functions
+## LAB3  Execute and Review Code Functions
 
 ### Step 1 Review and Execute the code
 
@@ -277,7 +276,7 @@ fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
 ```
 
 
-## LAB5 Execute Streaming tests
+## LAB4 Execute Streaming tests
 
 Go to OCI console -> Databases -> Analytics & AI -> Messaging -Streaming
 
@@ -316,7 +315,7 @@ done
 ````
 
 
-## LAB6 Execute API tests
+## LAB5 Execute API tests
 
 Execute the following commmands
 ````
@@ -345,7 +344,7 @@ for (( i=0; i<${#ticketNo[@]}; i++ )); do
 done
 ````
 
-## LAB7  Review Streaming/API/Functions configuration
+## LAB6  Review Streaming/API/Functions configuration
 
 Show OCI Console
 
