@@ -28,7 +28,7 @@ Provide a description and then hit Generate Token. This will generate a token. *
 
 To deploy the application, we will use a terraform scripts provided for this Lab. 
 
-Click on button right in order to Open Link in New Tab [![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=eu-frankfurt-1&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
+Click on button right in order to Open Link in New Tab [![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
 
 Provide your **Cloud Account Name** and click on Next
 
