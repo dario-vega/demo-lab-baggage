@@ -218,10 +218,10 @@ More detailed information in this file [Instructions.md](./Instructions.md)
 
 You can also use the terraform scripts provided. It will execute steps 4-12 and create the applicationt for you.
 
-[![Deploy to Oracle Cloud - home region](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
+[![Deploy to Oracle Cloud - home region](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip) - home region
 
 
-[![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=eu-frankfurt-1&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip)
+[![Deploy to Oracle Cloud - eu-frankfurt-1](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=eu-frankfurt-1&zipUrl=https://github.com/dario-vega/demo-lab-baggage/archive/refs/heads/main.zip) - eu-frankfurt-1
 
 
 ### IaC - NoSQL Tables Deployment
