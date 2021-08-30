@@ -3,10 +3,10 @@
 
 # Functions Policies
 
-resource "oci_identity_policy" "FunctionsServiceReposAccessPolicy" {
+resource "oci_identity_policy" "NOSQLDEMOFunctionsServiceReposAccessPolicy" {
   provider = oci.homeregion
-  name = "FunctionsServiceReposAccessPolicy"
-  description = "FunctionsServiceReposAccessPolicy"
+  name = "NOSQLDEMOFunctionsServiceReposAccessPolicy"
+  description = "NOSQLDEMOFunctionsServiceReposAccessPolicy"
   compartment_id = var.tenancy_ocid
   statements = ["Allow service FaaS to read repos in tenancy"]
 
