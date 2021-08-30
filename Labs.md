@@ -236,6 +236,10 @@ echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | 
 echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | jq '. | length'
 ```
 As you can see The getPassengersAffectedByFlight is still under construction
+```
+echo '{"endPoint":"getPassengersAffectedByFlight"}' | fn invoke $APP_NAME demo-api | jq
+```
+
 In the next Lab, we will proceed to implement this function with you
 In the meantime, some queries that you can run from the console
 
