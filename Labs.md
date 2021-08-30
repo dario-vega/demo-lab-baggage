@@ -1,10 +1,10 @@
 # WORKSHOP OUTLINE
-1. Setup
-2. NoSQL 
-3. Execute and Review Code Functions
-4. Execute Streaming tests 
-5. Execute API tests
-6. Review Streaming/API/Functions configuration
+1. Setup - 10 minutes
+2. NoSQL - 20 minutes
+3. Execute and Review Code Functions - 20 minutes
+4. Execute Streaming tests - 5 minutes
+5. Execute API tests - 5 minutes
+6. Review Streaming/API/Functions configuration 
 
 
 ## LAB1 - Setup - 10 minutes
