@@ -7,7 +7,7 @@
 6. Review Streaming/API/Functions configuration
 
 
-## LAB1 - Setup
+## LAB1 - Setup - 10 minutes
 
 ### Step 1. Create a compartment 
 Go to OCI console -> Identity & Security -> Compartments.
@@ -77,7 +77,7 @@ Note: In the step 4 replace [OCIR-REPO] by nosql_demos
 Use the guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
 
 
-## LAB2 NoSQL
+## LAB2 NoSQL - 20 minutes
 
 ### Step 1. NoSQL Tables Deployment
 
@@ -177,7 +177,7 @@ cat queries.sql
 
 ```
 
-## LAB3  Execute and Review Code Functions
+## LAB3  Execute and Review Code Functions  - 20 minutes
 
 ### Step 1 Review and Execute the code
 
@@ -276,7 +276,7 @@ fn invoke $APP_NAME load-target < stream_baggage_data_file99.json
 ```
 
 
-## LAB4 Execute Streaming tests
+## LAB4 Execute Streaming tests - 5 minutes
 
 Go to OCI console -> Databases -> Analytics & AI -> Messaging -Streaming
 
@@ -315,7 +315,7 @@ done
 ````
 
 
-## LAB5 Execute API tests
+## LAB5 Execute API tests  - 5 minutes
 
 Execute the following commmands
 ````
