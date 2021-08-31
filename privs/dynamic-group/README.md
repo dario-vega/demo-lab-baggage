@@ -33,8 +33,11 @@ oci iam dynamic-group create --description "$DYN_GROUP_NAME" --name "$DYN_GROUP_
 cd ~/demo-lab-baggage/privs/dynamic-group
 export POLICY_NAME=nosql_demos_faas
 STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
-echo ${STREAM_OCID-"Please review your STREAM_OCID"}
+echo ${STREAM_OCID-"Please set the STREAM_OCID variable with the good value before to proceed"}
+````
+If it returns **Please set the STREAM_OCID variable with the good value before to proceed**, please review the Troubleshooting section ci-below
 
+````
 ls -lrt  ${PREFIX_POLICY}example_policy_demo.json
 cp  ${PREFIX_POLICY}example_policy_demo.json  policy_demo.json
 sed -i "s/<here>/$COMP_ID/g"  policy_demo.json
@@ -46,14 +49,7 @@ oci iam policy create  --compartment-id $COMP_ID --name $POLICY_NAME --descripti
 
 **Troubleshooting** 
 
-You need to create the dynamic groups and privileges from your HOME region
-If you decided to deploy in another region, please case copy/paste your STREAM_OCID by run this command in your deployment region
-````
-STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
-echo ${STREAM_OCID-"Please review your STREAM_OCID"}
-````
-
-When creating in another region, you will have the following error
+You need to create the dynamic groups and privileges from your HOME region to avoid the following error :
 
 ````
 {
@@ -63,6 +59,13 @@ When creating in another region, you will have the following error
     "status": 403
 }
 ````
+
+If you decided to deploy in another region, please case copy/paste your STREAM_OCID by run this command in your deployment region
+````
+STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
+echo "STREAM_OCID="${STREAM_OCID}
+````
+
 
 
 ## Examples - OCI commands to get the dynamic-group and policies resources
