@@ -6,7 +6,7 @@ variable "tenancy_ocid" {}
 #}
 
 variable "ocir_repo_name" {
-  default = "nosql_demos"
+  default = "demonosql"
 }
 
 variable "ocir_user_name" {
