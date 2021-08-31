@@ -9,7 +9,8 @@ resources to which the dynamic group has been granted access.
 
 0) Retrive the OCID for your compartment
 ````
-COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+COMP_ID=${CMP_ID-$OCI_TENANCY}
 echo $COMP_ID
 ````
 
