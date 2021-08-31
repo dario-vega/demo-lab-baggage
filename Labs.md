@@ -74,7 +74,71 @@ Note: In the step 4 replace [OCIR-REPO] by demonosql (the name of the compartmen
 
 ### Step 5. Create the dynamic group and the policies 
 
-Use the guidelines are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
+
+**Oracle NoSQL Database Cloud Service uses Oracle Cloud Infrastructure Identity and Access Management to provide secure access to Oracle Cloud.** Oracle Cloud 
+Infrastructure Identity and Access Management enables you to create user accounts and give users permission to inspect, read, use, or manage tables. 
+
+The Oracle NoSQL Database SDKs allow you to provide the credentials to an application in multiple ways. 
+The credentials that are used for connecting your application are associated with a specific user. You can create a user for your application.
+
+In this snippet, we will use the API Key created in Step 2.
+
+````
+       return new NoSQLClient({
+            region: Region.EU_FRANKFURT_1,
+			compartment:'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa',
+            auth: {
+                iam: {
+                    tenantId: 'ocid1.tenancy.oc1..aaaaaaaahrs4avamaxiscouyeoirc7hz5byvumwyvjedslpsdb2d2xe2kp2q',
+                    userId: 'ocid1.user.oc1..aaaaaaaaq.......co3ssybmexcu4ba',
+                    fingerprint: 'e1:4f:7f:e7:b5:7c:11:38:ed:e5:9f:6d:92:bb:ae:3d',
+                    privateKeyFile: 'NoSQLprivateKey.pem'
+                }
+            }
+        });
+````
+
+Another way to do this connection is using **Dynamic groups**
+
+To enable a function to access another Oracle Cloud Infrastructure resource, you have to include the function in a dynamic group, and then create a policy to grant the
+dynamic group access to that resource. 
+
+Having set up the policy and the dynamic group, you can then include a call to a 'resource principal provider' in your function code. The resource principal 
+provider uses a resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token 
+is only valid for the resources to which the dynamic group has been granted access. 
+
+**Dynamic groups** allow you to group Oracle Cloud Infrastructure compute instances as "principal" actors (similar to user groups). You can then create policies to 
+permit instances to make API calls against Oracle Cloud Infrastructure services. When you create a dynamic group, rather than adding members explicitly to the group, 
+you instead define a set of matching rules to define the group members
+
+The guidelines to do this setup are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
+
+After doing the setup, you just use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
+
+In this snippet, there are hard-coded references (eg REGION).
+
+**NoSQL Database Node.js SDK**
+```
+function createClientResource() {
+  return  new NoSQLClient({
+    region: Region.EU_FRANKFURT_1,
+    compartment:'ocid1.compartment.oc1..aaaaaaaafml3tca3zcxyifmdff3aadp5uojimgx3cdnirgup6rhptxwnandq',
+    auth: {
+        iam: {
+            useResourcePrincipal: true
+        }
+    }
+  });
+}
+```
+**NoSQL Database Python SDK**
+```
+def get_handle():
+     provider = borneo.iam.SignatureProvider.create_with_resource_principal()
+     config = borneo.NoSQLHandleConfig('eu-frankfurt-1', provider).set_logger(None)
+     return borneo.NoSQLHandle(config)
+```
+
 
 
 ## LAB2 NoSQL - 20 minutes
