@@ -142,7 +142,7 @@ resource oci_core_route_table export_Route-Table-for-Private-Subnet-vcn_nosql_de
   }
   route_rules {
     #description = <<Optional value not found in discovery>>
-    destination       = "all-fra-services-in-oracle-services-network"
+    destination       = data.oci_core_services.oci_services.services[0]["cidr_block"]
     destination_type  = "SERVICE_CIDR_BLOCK"
     network_entity_id = oci_core_service_gateway.export_Service-Gateway-vcn_nosql_demos.id
   }
