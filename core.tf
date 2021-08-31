@@ -21,7 +21,7 @@ resource oci_core_service_gateway export_Service-Gateway-vcn_nosql_demos {
   }
   #route_table_id = <<Optional value not found in discovery>>
   services {
-    service_id = "ocid1.service.oc1.eu-frankfurt-1.aaaaaaaa7ncsqkj6lkz36dehifizupyn6qjqsmtepsegs23yyntnsy7qrvea"
+    service_id = data.oci_core_services.oci_services.services[0]["id"]
   }
   vcn_id = oci_core_vcn.export_vcn_nosql_demos.id
 }
