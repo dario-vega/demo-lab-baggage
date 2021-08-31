@@ -11,8 +11,10 @@ resources to which the dynamic group has been granted access.
 ````
 CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 COMP_ID=${CMP_ID-$OCI_TENANCY}
-PREFIX_POLICY=${CMP_ID-"new_"}
+PREFIX_POLICY=` [ -z "$CMP_ID" ] && echo "new_" `
 echo $COMP_ID
+echo $PREFIX_POLICY
+ls -lrt  ${PREFIX_POLICY}example_policy_demo.json
 ````
 
 1) Create the dynamic group
@@ -32,6 +34,8 @@ cd ~/demo-lab-baggage/privs/dynamic-group
 export POLICY_NAME=nosql_demos_faas
 STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
 echo ${STREAM_OCID-"Please review your STREAM_OCID"}
+
+ls -lrt  ${PREFIX_POLICY}example_policy_demo.json
 cp  ${PREFIX_POLICY}example_policy_demo.json  policy_demo.json
 sed -i "s/<here>/$COMP_ID/g"  policy_demo.json
 sed -i "s/<streamid>/$STREAM_OCID/g"  policy_demo.json
