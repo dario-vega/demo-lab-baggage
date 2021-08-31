@@ -151,7 +151,8 @@ Open the Cloud Shell (click in the icon > ) in the top right menu. Use the follo
 Creating NoSQL tables using oci-cli - DDL for create tables in this [directory](./objects) (e.g demo.nosql)
 ```
 cd ~/demo-lab-baggage/objects
-COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+COMP_ID=${CMP_ID-$OCI_TENANCY}
 echo $COMP_ID
 DDL_TABLE=$(cat demo.nosql)
 echo $DDL_TABLE
@@ -251,7 +252,8 @@ Open the Cloud Shell (click in the icon > ) in the top right menu.
 Execute the following instructions, it is mandatory for next Steps - if you close/open the Cloud Shell Console, please reexecute
 
 ```
-COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+COMP_ID=${CMP_ID-$OCI_TENANCY}
 echo $COMP_ID
 export APP_NAME="nosql_demos"
 
@@ -361,9 +363,12 @@ Publishing messages to the Stream instance from the OCI Console (copy/paste the 
 using OCI cli commands in order to simulate real-time traffic from the Cloud Shell
 
 ````
+CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+COMP_ID=${CMP_ID-$OCI_TENANCY}
+echo $COMP_ID
+
 cd ~/demo-lab-baggage/functions-fn
 cd streaming/load-target
-COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
 STREAM_ENDPOINT=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[]."messages-endpoint"'`
 echo $COMP_ID
@@ -387,9 +392,11 @@ done
 
 Execute the following commmands
 ````
+CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
+COMP_ID=${CMP_ID-$OCI_TENANCY}
+echo $COMP_ID
 IFS=$'\n'
 unset ticketNo
-COMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 HOSTAPI=`oci api-gateway gateway list --compartment-id $COMP_ID --lifecycle-state ACTIVE --display-name nosql_demos | jq -r '."data".items[]."hostname"'`
 URL="https://$HOSTAPI/BaggageDemo/getBagInfoByTicketNumber"
 
