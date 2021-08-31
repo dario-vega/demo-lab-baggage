@@ -40,10 +40,17 @@ oci iam policy create  --compartment-id $COMP_ID --name $POLICY_NAME --descripti
 ````
 
 
-TROOBLEHSTOING 
+**Troubleshooting** 
 
 You need to create the dynamic groups and privileges from your HOME region
-If you decided to  case copy/paste your STREAM_OCID by running previously the command
+If you decided to deploy in another region, please case copy/paste your STREAM_OCID by run this command in your deployment region
+````
+STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
+echo ${STREAM_OCID-"Please review your STREAM_OCID"}
+````
+
+When creating in another region, you will have the following error
+
 ````
 {
     "code": "NotAllowed",
