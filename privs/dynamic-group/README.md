@@ -7,14 +7,13 @@ Having set up the policy and the dynamic group, you can then include a call to a
 resource provider session token (RPST) that enables the function to authenticate itself with other Oracle Cloud Infrastructure services. The token is only valid for the 
 resources to which the dynamic group has been granted access. 
 
-0) Retrive the OCID for your compartment
+0) Retrive the OCID for the compartment demonosql
 ````
 CMP_ID=`oci iam compartment list --name  demonosql | jq -r '."data"[].id'`
 COMP_ID=${CMP_ID-$OCI_TENANCY}
 PREFIX_POLICY=` [ -z "$CMP_ID" ] && echo "new_" `
 echo $COMP_ID
 echo $PREFIX_POLICY
-ls -lrt  ${PREFIX_POLICY}example_policy_demo.json
 ````
 
 1) Create the dynamic group
