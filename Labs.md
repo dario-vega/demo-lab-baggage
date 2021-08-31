@@ -68,7 +68,7 @@ Click on Cloud Shell Setup
 
 Execute the steps 1 to 7 provided in this Wizard 
 
-Note: In the step 4 replace [OCIR-REPO] by nosql_demos
+Note: In the step 4 replace [OCIR-REPO] by demonosql (the name of the compartment)
 
 
 
