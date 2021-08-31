@@ -2,23 +2,15 @@
 
 resource oci_core_internet_gateway export_Internet-Gateway-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "Internet Gateway-vcn_nosql_demos"
   enabled      = "true"
-  freeform_tags = {
-  }
   vcn_id = oci_core_vcn.export_vcn_nosql_demos.id
 }
 
 
 resource oci_core_service_gateway export_Service-Gateway-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "Service Gateway-vcn_nosql_demos"
-  freeform_tags = {
-  }
   #route_table_id = <<Optional value not found in discovery>>
   services {
     service_id = data.oci_core_services.oci_services.services[0]["id"]
@@ -30,14 +22,9 @@ resource oci_core_subnet export_Public-Subnet-vcn_nosql_demos {
   #availability_domain = <<Optional value not found in discovery>>
   cidr_block     = "10.0.0.0/24"
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   dhcp_options_id = oci_core_vcn.export_vcn_nosql_demos.default_dhcp_options_id
   display_name    = "Public Subnet-vcn_nosql_demos"
   dns_label       = "sub04301224030"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   #ipv6cidr_block = <<Optional value not found in discovery>>
   prohibit_internet_ingress  = "false"
   prohibit_public_ip_on_vnic = "false"
@@ -52,14 +39,9 @@ resource oci_core_subnet export_Private-Subnet-vcn_nosql_demos {
   #availability_domain = <<Optional value not found in discovery>>
   cidr_block     = "10.0.1.0/24"
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   dhcp_options_id = oci_core_vcn.export_vcn_nosql_demos.default_dhcp_options_id
   display_name    = "Private Subnet-vcn_nosql_demos"
   dns_label       = "sub04301224031"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   #ipv6cidr_block = <<Optional value not found in discovery>>
   prohibit_internet_ingress  = "true"
   prohibit_public_ip_on_vnic = "true"
@@ -77,25 +59,15 @@ resource oci_core_vcn export_vcn_nosql_demos {
     "10.0.0.0/16",
   ]
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "vcn_nosql_demos"
   dns_label    = "vcnnosqldemos"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   #is_ipv6enabled = <<Optional value not found in discovery>>
 }
 
 resource oci_core_default_dhcp_options export_Default-DHCP-Options-for-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name     = "Default DHCP Options for vcn_nosql_demos"
   domain_name_type = "CUSTOM_DOMAIN"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   manage_default_resource_id = oci_core_vcn.export_vcn_nosql_demos.default_dhcp_options_id
   options {
     custom_dns_servers = [
@@ -117,23 +89,13 @@ resource oci_core_default_dhcp_options export_Default-DHCP-Options-for-vcn_nosql
 resource oci_core_nat_gateway export_NAT-Gateway-vcn_nosql_demos {
   block_traffic  = "false"
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "NAT Gateway-vcn_nosql_demos"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   vcn_id       = oci_core_vcn.export_vcn_nosql_demos.id
 }
 
 resource oci_core_route_table export_Route-Table-for-Private-Subnet-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "Route Table for Private Subnet-vcn_nosql_demos"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   route_rules {
     #description = <<Optional value not found in discovery>>
     destination       = "0.0.0.0/0"
@@ -151,12 +113,7 @@ resource oci_core_route_table export_Route-Table-for-Private-Subnet-vcn_nosql_de
 
 resource oci_core_default_route_table export_Default-Route-Table-for-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "Default Route Table for vcn_nosql_demos"
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
-  }
   manage_default_resource_id = oci_core_vcn.export_vcn_nosql_demos.default_route_table_id
   route_rules {
     #description = <<Optional value not found in discovery>>
@@ -168,8 +125,6 @@ resource oci_core_default_route_table export_Default-Route-Table-for-vcn_nosql_d
 
 resource oci_core_security_list export_Security-List-for-Private-Subnet-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "Security List for Private Subnet-vcn_nosql_demos"
   egress_security_rules {
     #description = <<Optional value not found in discovery>>
@@ -180,9 +135,6 @@ resource oci_core_security_list export_Security-List-for-Private-Subnet-vcn_nosq
     stateless = "false"
     #tcp_options = <<Optional value not found in discovery>>
     #udp_options = <<Optional value not found in discovery>>
-  }
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
   }
   ingress_security_rules {
     #description = <<Optional value not found in discovery>>
@@ -229,8 +181,6 @@ resource oci_core_security_list export_Security-List-for-Private-Subnet-vcn_nosq
 
 resource oci_core_default_security_list export_Default-Security-List-for-vcn_nosql_demos {
   compartment_id = var.compartment_ocid
-  defined_tags = {
-  }
   display_name = "Default Security List for vcn_nosql_demos"
   egress_security_rules {
     #description = <<Optional value not found in discovery>>
@@ -241,9 +191,6 @@ resource oci_core_default_security_list export_Default-Security-List-for-vcn_nos
     stateless = "false"
     #tcp_options = <<Optional value not found in discovery>>
     #udp_options = <<Optional value not found in discovery>>
-  }
-  freeform_tags = {
-    "VCN" = "VCN-2021-04-30T12:23:55"
   }
   ingress_security_rules {
     #description = <<Optional value not found in discovery>>
