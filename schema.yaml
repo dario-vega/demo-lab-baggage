@@ -19,6 +19,7 @@
       visible: true  
       variables:
       - compartment_ocid
+      - ocir_repo_name
       - ocir_user_name
       - ocir_user_password
 
