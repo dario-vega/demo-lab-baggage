@@ -86,10 +86,10 @@ In this snippet, we will use the API Key created in Step 2.
 ````
        return new NoSQLClient({
             region: Region.EU_FRANKFURT_1,
-			compartment:'ocid1.compartment.oc1..aaaaaaaamgvdxnuap56pu2qqxrcg7qnvb4wxenqguylymndvey3hsyi57paa',
+			compartment:'ocid1.compartment.oc1..aaaaaaaamg....y3hsyi57paa',
             auth: {
                 iam: {
-                    tenantId: 'ocid1.tenancy.oc1..aaaaaaaahrs4avamaxiscouyeoirc7hz5byvumwyvjedslpsdb2d2xe2kp2q',
+                    tenantId: 'ocid1.tenancy.oc1..aaaaaaaahrs4avamaxisc...........slpsdb2d2xe2kp2q',
                     userId: 'ocid1.user.oc1..aaaaaaaaq.......co3ssybmexcu4ba',
                     fingerprint: 'e1:4f:7f:e7:b5:7c:11:38:ed:e5:9f:6d:92:bb:ae:3d',
                     privateKeyFile: 'NoSQLprivateKey.pem'
