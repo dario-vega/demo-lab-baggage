@@ -32,9 +32,9 @@ oci iam dynamic-group create --description "$DYN_GROUP_NAME" --name "$DYN_GROUP_
 cd ~/demo-lab-baggage/privs/dynamic-group
 export POLICY_NAME=nosql_demos_faas
 STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
-echo ${STREAM_OCID-"Review the STREAM_OCID variable with the good value before to proceed with Streaming Lab"}
+echo ${STREAM_OCID-"STREAM_OCID variable is empty. Review if you will execute the Advanced Labs - Streaming"}
 ````
-If it returns **Review the STREAM_OCID variable with the good value before to proceed with Streaming Lab**, please review the Troubleshooting section ci-below
+If it returns **STREAM_OCID variable is empty. Review if you will execute the Advanced Labs - Streaming**, please review the Troubleshooting section ci-below
 
 ````
 ls -lrt  ${PREFIX_POLICY}example_policy_demo.json
@@ -59,7 +59,7 @@ You need to create the dynamic groups and privileges from your HOME region to av
 }
 ````
 
-If you decided to deploy in another region, please case copy/paste your STREAM_OCID by run this command in your deployment region
+If you decided to deploy in another region other than you HOME region, please case copy/paste your STREAM_OCID by run this command in your deployment region
 ````
 STREAM_OCID=`oci streaming admin stream list --compartment-id $COMP_ID --name nosql_demos --lifecycle-state ACTIVE | jq -r '."data"[].id'`
 echo "STREAM_OCID="${STREAM_OCID}
