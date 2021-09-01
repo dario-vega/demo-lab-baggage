@@ -19,10 +19,7 @@ resource "oci_identity_dynamic_group" "FunctionsServiceDynamicGroup" {
   name = "nosql_demos"
   description = "nosql_demos"
   compartment_id = var.compartment_ocid
-  matching_rule = "Any {
-ALL {resource.type = 'ApiGateway', resource.compartment.id = '${var.compartment_ocid}'},
-ALL {resource.type = 'fnfunc', resource.compartment.id = '${var.compartment_ocid}'}
-}"
+  matching_rule = "Any {\nALL {resource.type = 'ApiGateway', resource.compartment.id = '${var.compartment_ocid}'},\nALL {resource.type = 'fnfunc', resource.compartment.id = '${var.compartment_ocid}'}\n}"
   provisioner "local-exec" {
        command = "sleep 5"
   }
