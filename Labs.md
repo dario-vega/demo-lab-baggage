@@ -47,32 +47,8 @@ Review and Click on Create
 
 A job will run automatically. It takes 5 minutes. Wait still State becomes Succeeded
 
-### Step 4. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 
-Open the Cloud Shell (click in the icon > ) in the top right menu
-
-````
-git clone https://github.com/dario-vega/demo-lab-baggage
-sh ~/demo-lab-baggage/data.sh
-````
-
-Go to OCI console -> Developer Services -> Applications
-
-On the left List Scope - Compartment - choose demonosql compartment
-
-Click on nosql_demos application
-
-On the left choose Getting Started
-
-Click on Cloud Shell Setup
-
-Execute the steps 1 to 7 provided in this Wizard 
-
-Note: In the step 4 replace [OCIR-REPO] by demonosql (the name of the compartment)
-
-
-
-### Step 5. Create the dynamic group and the policies 
+### Step 4. Understand the dynamic group and the policies 
 
 
 **Oracle NoSQL Database Cloud Service uses Oracle Cloud Infrastructure Identity and Access Management to provide secure access to Oracle Cloud.** Oracle Cloud 
@@ -111,9 +87,7 @@ is only valid for the resources to which the dynamic group has been granted acce
 permit instances to make API calls against Oracle Cloud Infrastructure services. When you create a dynamic group, rather than adding members explicitly to the group, 
 you instead define a set of matching rules to define the group members
 
-The guidelines to do this setup are provided in  [./privs/dynamic-group](./privs/dynamic-group) directory
-
-After doing the setup, you just use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
+After doing the setup (done for you in the step 3), you just use **Resource Principals to do the connection to NoSQL Cloud Service** as shown below.
 
 In this snippet, there are hard-coded references (eg REGION).
 
@@ -139,7 +113,28 @@ def get_handle():
      return borneo.NoSQLHandle(config)
 ```
 
+### Step 5. Cloud Shell Configuration - clone github, execute shell data.sh and setup the fn env.
 
+Open the Cloud Shell (click in the icon > ) in the top right menu
+
+````
+git clone https://github.com/dario-vega/demo-lab-baggage
+sh ~/demo-lab-baggage/data.sh
+````
+
+Go to OCI console -> Developer Services -> Applications
+
+On the left List Scope - Compartment - choose demonosql compartment
+
+Click on nosql_demos application
+
+On the left choose Getting Started
+
+Click on Cloud Shell Setup
+
+Execute the steps 1 to 7 provided in this Wizard 
+
+Note: In the step 4 replace [OCIR-REPO] by demonosql (the name of the compartment)
 
 ## LAB2 NoSQL - 20 minutes
 
