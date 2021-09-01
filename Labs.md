@@ -299,6 +299,7 @@ echo '{"endPoint":"getBagInfoByTicketNumber"}' | fn invoke $APP_NAME demo-api | 
 As you can see The getPassengersAffectedByFlight is still under construction
 ```
 echo '{"endPoint":"getPassengersAffectedByFlight"}' | fn invoke $APP_NAME demo-api | jq
+echo '{"endPoint":"getPassengersAffectedByFlight"}' | fn invoke $APP_NAME demo-api | fn invoke $APP_NAME demo-api | jq
 ```
 
 In the next Lab, we will proceed to implement this function with you
@@ -320,6 +321,14 @@ AND    size(d.bagInfo.flightLegs) = 2
 
 ````
 
+````
+SQL_STATEMENT=$(cat ~/demo-lab-baggage/objects/query1.sql | tr '\n' ' ')
+echo $SQL_STATEMENT
+echo "{\"sql\":\"$SQL_STATEMENT\",\""endPoint\"": \""executeSQL\"" }"  | fn invoke $APP_NAME demo-api
+
+oci nosql query execute -c  $COMP_ID --statement "$SQL_STATEMENT"
+
+````
 
 ### Step 4 Load Data using Streaming
 
