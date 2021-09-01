@@ -26,7 +26,7 @@ resource "oci_identity_dynamic_group" "FunctionsServiceDynamicGroup" {
 }
 
 resource "oci_identity_policy" "FunctionsServiceDynamicGroupPolicy" {
-  depends_on = [oci_identity_dynamic_group.FunctionsServiceDynamicGroup, oci_streaming_stream.export_nosql_demos_3]
+  depends_on = [oci_identity_dynamic_group.FunctionsServiceDynamicGroup]
   provider = oci.homeregion
   name = "nosql_demos_faas"
   description = "nosql_demos_faas"
