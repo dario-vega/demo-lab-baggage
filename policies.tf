@@ -37,7 +37,7 @@ resource "oci_identity_policy" "FunctionsServiceDynamicGroupPolicy" {
   ,"allow any-user  to use functions-family   in compartment id <here> where ALL {request.principal.type = 'ApiGateway', request.resource.compartment.id = '${var.compartment_ocid}'}"
   ,"allow any-user to use fn-function in compartment id <here> where all {request.principal.type='serviceconnector',  request.principal.compartment.id='${var.compartment_ocid}'}"
   ,"allow any-user to use fn-invocation in compartment id ${var.compartment_ocid} where all {request.principal.type='serviceconnector',  request.principal.compartment.id='${var.compartment_ocid}'}"
-  ,"allow any-user to {STREAM_READ, STREAM_CONSUME} in compartment id ${var.compartment_ocid} where all {request.principal.type='serviceconnector',  target.stream.id='oci_streaming_stream.export_nosql_demos_3.id',  request.principal.compartment.id='${var.compartment_ocid}'}"
+#  ,"allow any-user to {STREAM_READ, STREAM_CONSUME} in compartment id ${var.compartment_ocid} where all {request.principal.type='serviceconnector',  target.stream.id='oci_streaming_stream.export_nosql_demos_3.id',  request.principal.compartment.id='${var.compartment_ocid}'}"
   ]
 
   provisioner "local-exec" {
