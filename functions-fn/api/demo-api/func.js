@@ -20,12 +20,15 @@ fdk.handle(async function(input, ctx){
 
   let ticketNo;
   let endPoint;
+  let sql;
 
   // Reading parameters from standard input for TEST purposes
   if (input && input.endPoint)
     endPoint = input.endPoint;
   if (input && input.ticketNo)
     ticketNo = input.ticketNo;
+  if (input && input.sql)
+    sql = input.sql;
 
   // Reading parameters sent by the httpGateway
   let hctx = ctx.httpGateway
@@ -46,8 +49,11 @@ fdk.handle(async function(input, ctx){
      rows = getBagInfoByTicketNumber(ticketNo);
   }
   else if (endPoint == "getPassengersAffectedByFlight") {
-     const statementQry1 = `SELECT d.ticketNum as ticketNo, d.name as fullName, d.contactPhone as contactInfo, size(d.content.bagInfo) as numBags FROM demo d WHERE d.bagInfo.flightLegs.flightNo =ANY 'flightNo'`
-     rows = {'message': endPoint + " under construction." , "sql" : statementQry1, "index" : "bagInfo.flightLegs.flightNo"}
+     const statementQry1 = `SELECT d.ticketNo as ticketNo, d.fullName as fullName, d.contactPhone as contactInfo, size(d.bagInfo) as numBags FROM demo d WHERE d.bagInfo.flightLegs.flightNo =ANY 'BM715'`
+     rows = {'message': endPoint + " under construction." , "sql" : statementQry1, "index" : "bagInfo.flightLegs.flightNo", "endPoint":"executeSQL"}
+  }
+  else if ((endPoint == "executeSQL") && (sql)) {
+     rows = executeQuery(sql);
   }
   else {
      rows = {'message': endPoint + " not managed"}
@@ -67,16 +73,24 @@ fdk.handle(async function(input, ctx){
 async function getBagInfoByTicketNumber (ticketNo) {
   const statementQry1 = `SELECT * FROM demo LIMIT ${lim}`;
   const statementQry2 = `SELECT * FROM demo WHERE ticketNo =  "${ticketNo}"`;
+  let result;
 
+  if (ticketNo)
+     result = executeQuery(statementQry2);
+  else
+     result = executeQuery(statementQry1);
+  return result;
+}
+
+
+
+async function executeQuery (statement) {
   const rows = [];
   let cnt ;
   let res;
   try {
     do {
-       if (ticketNo)
-         res = await client.query(statementQry2, { continuationKey:cnt});
-       else
-         res = await client.query(statementQry1, { continuationKey:cnt});
+       res = await client.query(statement, { continuationKey:cnt});
        rows.push.apply(rows, res.rows);
        cnt = res.continuationKey;
     } while(res.continuationKey != null);
@@ -86,7 +100,6 @@ async function getBagInfoByTicketNumber (ticketNo) {
   }
   return rows;
 }
-
 
 function createClientResource() {
   return  new NoSQLClient({
