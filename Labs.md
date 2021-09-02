@@ -136,6 +136,9 @@ Execute the steps 1 to 7 provided in this Wizard
 
 Note: In the step 4 replace [OCIR-REPO] by demonosql (the name of the compartment)
 
+![Working](FunctionsSetup.png)
+
+
 ## LAB2 NoSQL - 20 minutes
 
 ### Step 1. NoSQL Tables Deployment
