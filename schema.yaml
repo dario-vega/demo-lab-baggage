@@ -3,7 +3,11 @@
 
     title: "demo-lab-baggage serverless architecture and NoSQL Cloud Services"
     Description: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
+    informationalText: "Thanks for using our Demo Baggager Backend"
+    instructions: "Please choose the region Phoenix and Choose "
+    troubleshooting: "Need Help"
     stackDescription: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
+    source: quickstart    
     schemaVersion: 1.1.0
     version: "20210101"
     locale: "en"
