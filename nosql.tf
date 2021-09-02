@@ -3,7 +3,7 @@
 resource oci_nosql_table nosql_demoKeyVal {
   compartment_id = var.compartment_ocid
   ddl_statement  = "CREATE TABLE IF NOT EXISTS demoKeyVal ( key INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1 NO CYCLE ), value JSON, PRIMARY KEY (key))"
-  is_auto_reclaimable = "${var.always_free}"
+  is_auto_reclaimable = var.always_free
   name                = "demoKeyVal"
   table_limits {
     max_read_units     = "10"
@@ -16,7 +16,7 @@ resource oci_nosql_table nosql_demoKeyVal {
 resource oci_nosql_table nosql_demo {
   compartment_id = var.compartment_ocid
   ddl_statement  = "CREATE TABLE if not exists demo(fullName STRING, contactPhone STRING, ticketNo STRING, confNo STRING,gender  STRING, bagInfo JSON,  PRIMARY KEY ( ticketNo ))"
-  is_auto_reclaimable = "${var.always_free}"
+  is_auto_reclaimable = var.always_free
   name                = "demo"
   table_limits {
     max_read_units     = "10"
