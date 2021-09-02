@@ -81,3 +81,15 @@
         displayText: "API endpoint URL example"
         type: copyableString
         visible: true
+
+      nosql_table_ddl_statement:
+        title: "nosql table ddl statement"
+        displayText: "NOSQL example"
+        type: copyableString
+        visible: true 
+
+      nosql_kv_table_ddl_statement:
+        title: "nosql table KV ddl statement"
+        displayText: "NOSQL example"
+        type: copyableString
+        visible: true 
