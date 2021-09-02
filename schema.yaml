@@ -9,7 +9,6 @@
     stackDescription: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
     source:
       type: web
-      reference: "GitHub"
     schemaVersion: 1.1.0
     version: "20210101"
     locale: "en"
