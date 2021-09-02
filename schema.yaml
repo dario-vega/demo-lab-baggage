@@ -13,7 +13,6 @@
       variables:
       - tenancy_ocid
       - region
-      - ocir_repo_name
 
     - title: Required Configuration
       visible: true  
