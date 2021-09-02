@@ -2,6 +2,7 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
     title: "demo-lab-baggage serverless architecture and NoSQL Cloud Services"
+    Description: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
     stackDescription: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
     schemaVersion: 1.1.0
     version: "20210101"
