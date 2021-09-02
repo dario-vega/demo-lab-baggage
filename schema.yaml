@@ -13,18 +13,21 @@
       variables:
       - tenancy_ocid
       - region
-      - ocir_repo_name
 
     - title: Required Configuration
       visible: true  
       variables:
       - compartment_ocid
-      - ocir_repo_name
-      - ocir_user_name
-      - ocir_user_password
-
+      - always_free 
+      
     variables:
-
+      always_free:
+        type: boolean
+        title: "NOSQL always free ?"
+        description: "The NOSQL tables will create with the option always free"
+        visible: true
+        default: false
+        
       compartment_ocid:
         type: oci:identity:compartment:id
         required: true
@@ -39,31 +42,3 @@
         title: Region
         description: "Region where you want to deploy the resources defined by this stack."
           
-      ocir_repo_name:
-        type: string
-        required: true
-        visibile: true
-        title: "OCIR repository name"
-        description: "Oracle Cloud Infrastructure Registry repository name (for example nosql_demos)"
-
-      ocir_user_name:
-        type: string
-        required: true
-        visibile: true
-        title: "OCIR username"
-        description: "Oracle Cloud Infrastructure Registry username (your OCI username)" 
-
-      ocir_user_password:
-        type: password
-        required: true
-        visibile: true
-        title: "OCIR user password"
-        description: "Oracle Cloud Infrastructure Registry user password (your OCI user authtoken)" 
-
-    outputs:
-
-      oci_apigateway_deployment_URL:
-        title: "API endpoint URL"
-        displayText: "API endpoint URL example"
-        type: copyableString
-        visible: true
