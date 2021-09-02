@@ -35,3 +35,13 @@ data "oci_apigateway_deployment" "export_BaggageDemo" {
     deployment_id = oci_apigateway_deployment.export_BaggageDemo.id
 }
 
+data "oci_nosql_table" "nosql_demo" {
+  table_name_or_id = oci_nosql_table.nosql_demo.id
+	compartment_id = oci_nosql_table.nosql_demo.compartment_id
+}
+
+data "oci_nosql_table" "nosql_demoKeyVal" {
+  table_name_or_id = oci_nosql_table.nosql_demoKeyVal.id
+	compartment_id = oci_nosql_table.nosql_demoKeyVal.compartment_id
+}
+
