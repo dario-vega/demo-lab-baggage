@@ -1,4 +1,4 @@
-## Copyright © 2020, Oracle and/or its affiliates. 
+## Copyright © 2021, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
     title: "demo-lab-baggage serverless architecture and NoSQL Cloud Services"
@@ -7,10 +7,12 @@
     instructions: "Please choose the region Phoenix and Choose "
     troubleshooting: "Need Help"
     stackDescription: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
-    source: quickstart    
+    source:
+      type: quickstart
     schemaVersion: 1.1.0
     version: "20210101"
     locale: "en"
+
 
     variableGroups:
     - title: General Configuration
