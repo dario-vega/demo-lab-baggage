@@ -79,9 +79,11 @@ Choose **nosql_demos** as Connector Name, provide a description
 Choose streaming as a source and functions as a target 
 
 On the Configure Source panel, choose **default** as Stream Pool and **nosql_demos** as Stream
+
 On the Configure Target panel, choose **nosql_demos** as Function Application and **load-target** as Function
 
 Create default policy allowing this service connector to read from Streaming in compartment demonosql.
+
 Create default policy allowing this service connector to write to Functions in compartment demonosql.
 
 and Create it.
@@ -102,7 +104,9 @@ On the left choose Deployments
 Click on Create Deployment. This opens up a new window. Use the From Scratch wizard
 
 Choose **BaggageDemo** as Name, Choose **/BaggageDemo** as path prefix and click Next
+
 Choose **/{api}** as a Path, Choose GET as a Method, Choose Oracle Functions as Type, Choose **nosql_demos** as Application and then **demo-api** as a Function Name
+
 Click on Next and Create it.
 
 
