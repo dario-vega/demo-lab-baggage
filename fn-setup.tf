@@ -7,30 +7,6 @@ resource "null_resource" "Login2OCIR" {
   }
 }
 
-resource "null_resource" "rp-demo-fnPush2OCIR" {
-  depends_on = [null_resource.Login2OCIR
-			   ]
-
-  provisioner "local-exec" {
-    command = "image=$(docker images | grep rp-demo-fn | awk -F ' ' '{print $3}') ; docker rmi -f $image &> /dev/null ; echo $image"
-    working_dir = "functions-fn/rp-demo-fn"
-  }
-
-  provisioner "local-exec" {
-    command = "fn build --verbose"
-    working_dir = "functions-fn/rp-demo-fn"
-  }
-
-  provisioner "local-exec" {
-    command = "image=$(docker images | grep rp-demo-fn | awk -F ' ' '{print $3}') ; docker tag $image ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/rp-demo-fn:0.0.1"
-    working_dir = "functions-fn/rp-demo-fn"
-  }
-
-  provisioner "local-exec" {
-    command = "docker push ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/rp-demo-fn:0.0.1"
-    working_dir = "functions-fn/rp-demo-fn"
-  }
-}
 
 resource "null_resource" "demo-apiPush2OCIR" {
   depends_on = [null_resource.Login2OCIR
@@ -42,7 +18,7 @@ resource "null_resource" "demo-apiPush2OCIR" {
   }
 
   provisioner "local-exec" {
-    command = "fn build --verbose"
+    command = "fn build "
     working_dir = "functions-fn/api/demo-api/"
   }
 
@@ -67,7 +43,7 @@ resource "null_resource" "demo-keyval-loadPush2OCIR" {
   }
 
   provisioner "local-exec" {
-    command = "fn build --verbose"
+    command = "fn build "
     working_dir = "functions-fn/load/demo-keyval-load/"
   }
 
@@ -92,7 +68,7 @@ resource "null_resource" "demo-loadPush2OCIR" {
   }
 
   provisioner "local-exec" {
-    command = "fn build --verbose"
+    command = "fn build "
     working_dir = "functions-fn/load/demo-load/"
   }
 
@@ -107,27 +83,4 @@ resource "null_resource" "demo-loadPush2OCIR" {
   }
 }
 
-resource "null_resource" "load-targetPush2OCIR" {
-  depends_on = [null_resource.Login2OCIR
-			   ]
 
-  provisioner "local-exec" {
-    command = "image=$(docker images | grep load-target | awk -F ' ' '{print $3}') ; docker rmi -f $image &> /dev/null ; echo $image"
-    working_dir = "functions-fn/streaming/load-target/"
-  }
-
-  provisioner "local-exec" {
-    command = "fn build --verbose"
-    working_dir = "functions-fn/streaming/load-target/"
-  }
-
-  provisioner "local-exec" {
-    command = "image=$(docker images | grep load-target | awk -F ' ' '{print $3}') ; docker tag $image ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/load-target:0.0.1"
-    working_dir = "functions-fn/streaming/load-target/"
-  }
-
-  provisioner "local-exec" {
-    command = "docker push ${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/load-target:0.0.1"
-    working_dir = "functions-fn/streaming/load-target/"
-  }
-}
