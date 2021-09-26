@@ -75,21 +75,4 @@ resource oci_functions_function export_demo-load {
   }
 }
 
-resource oci_functions_function export_load-target {
-  depends_on     = [null_resource.load-targetPush2OCIR]
-  application_id = oci_functions_application.export_nosql_demos_1.id
-  config = {
-  }
-  defined_tags = {
-  }
-  display_name = "load-target"
-  freeform_tags = {
-  }
-  image              = "${local.ocir_docker_repository}/${local.ocir_namespace}/${var.ocir_repo_name}/load-target:0.0.1"
-  memory_in_mbs      = "256"
-  timeout_in_seconds = "300"
-  trace_config {
-    is_enabled = "false"
-  }
-}
 
