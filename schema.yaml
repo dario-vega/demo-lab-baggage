@@ -3,12 +3,10 @@
 
     title: "demo-lab-baggage serverless architecture and NoSQL Cloud Services"
     description: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
-    informationalText: "Thanks for using our Demo Baggager Backend"
+    informationalText: "Modern apps benefit from predictable low latency, flexibility, and horizontal scale-out of NoSQL databases. Join us to learn how effortless it is to develop a modern app using Oracle Cloud Infrastructure and Oracle NoSQL Database Cloud Service. This lab is based on data from an airline baggage tracking app"
     instructions: "Please choose the region Phoenix and Choose "
     troubleshooting: "Need Help"
     stackDescription: "Learn and Discover why NoSQL Cloud Services and OCI native services are compelling"
-    source:
-      type: web
     schemaVersion: 1.1.0
     version: "20210101"
     locale: "en"
